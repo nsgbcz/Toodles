@@ -6,9 +6,9 @@ using UnityEngine;
 public class Execute : SerializedMonoBehaviour, IExecute
 {
 
-#if UNITY_EDITOR
+/*#if UNITY_EDITOR
     public string Description;
-#endif
+#endif*/
     public IContainer GetContainer
     {
         get
@@ -27,11 +27,6 @@ public class Execute : SerializedMonoBehaviour, IExecute
     public virtual void Action()
     {
         if (this != null && Invoke()) Destroy(this);
-    }
-
-    public void SetValue<T>(T value)
-    {
-        methList.SetValue(value);
     }
 
     public void AddInvoke(IInvoke<bool> invoke)
@@ -62,4 +57,4 @@ public class Execute : SerializedMonoBehaviour, IExecute
 #endif
 }
 
-public interface IExecute : IAction, IListContainer, ISetValue, IInvoke<bool> { }
+public interface IExecute : IAction, IListContainer, IInvoke<bool> { }

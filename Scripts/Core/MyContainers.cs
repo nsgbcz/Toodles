@@ -16,8 +16,6 @@ namespace MyDelegates
     {
         IContainer GetContainer { get; }
     }
-    public interface ISetValue { void SetValue<T>(T value); }
-    public interface ISetValue<T> { void SetValue(T value); }
 
     interface IBuilder
     {
@@ -28,7 +26,7 @@ namespace MyDelegates
     //    ISetValue<T> GetAct();
     //}
 
-    public interface IContainer : ISetValue, IInvoke<bool>//, IDrawGizmosSelected
+    public interface IContainer : IInvoke<bool>//, IDrawGizmosSelected
     {
         void SetAction();
 
@@ -39,7 +37,7 @@ namespace MyDelegates
     #endregion
 
     #region IContainers
-    public class ListContainer : IInvoke<bool>, IContainer
+    public class ListContainer : IContainer
     {
         public List<IInvoke<bool>> Meths = new List<IInvoke<bool>>();
 
@@ -50,15 +48,6 @@ namespace MyDelegates
             {
                 if (Meths[i] is IBuilder) Meths[i] = ((IBuilder)Meths[i]).GetAct();
                 else if (Meths[i] is IContainer) ((IContainer)Meths[i]).SetAction();
-            }
-        }
-
-        void ISetValue.SetValue<T>(T value)
-        {
-            for (int i = 0; i < Meths.Count; i++)
-            {
-                if (Meths[i] is ISetValue<T>) ((ISetValue<T>)Meths[i]).SetValue(value);
-                else if (Meths[i] is ISetValue) ((ISetValue)Meths[i]).SetValue(value);
             }
         }
 
@@ -105,14 +94,6 @@ namespace MyDelegates
                 else if (Meths[i] is IContainer) ((IContainer)Meths[i]).SetAction();
             }
         }
-        void ISetValue.SetValue<T>(T value)
-        {
-            for (int i = 0; i < Meths.Count; i++)
-            {
-                if (Meths[i] is ISetValue<T>) ((ISetValue<T>)Meths[i]).SetValue(value);
-                else if (Meths[i] is ISetValue) ((ISetValue)Meths[i]).SetValue(value);
-            }
-        }
 
         public bool Invoke()
         {
@@ -152,14 +133,6 @@ namespace MyDelegates
             }
         }
 
-        void ISetValue.SetValue<T>(T value)
-        {
-            for (int i = 0; i < Meths.Count; i++)
-            {
-                if (Meths[i] is ISetValue<T>) ((ISetValue<T>)Meths[i]).SetValue(value);
-                else if (Meths[i] is ISetValue) ((ISetValue)Meths[i]).SetValue(value);
-            }
-        }
 
         public bool Invoke()
         {
@@ -205,14 +178,6 @@ namespace MyDelegates
             }
         }
 
-        void ISetValue.SetValue<T>(T value)
-        {
-            for (int i = 0; i < Meths.Count; i++)
-            {
-                if (Meths[i] is ISetValue<T>) ((ISetValue<T>)Meths[i]).SetValue(value);
-                else if (Meths[i] is ISetValue) ((ISetValue)Meths[i]).SetValue(value);
-            }
-        }
 
         public bool Invoke()
         {
@@ -255,15 +220,6 @@ namespace MyDelegates
             else if (Else is IContainer) ((IContainer)Else).SetAction();
         }
 
-        void ISetValue.SetValue<T>(T value)
-        {
-            if (If is ISetValue<T>) ((ISetValue<T>)If).SetValue(value);
-            else if (If is ISetValue) ((ISetValue)If).SetValue(value);
-            if (Then is ISetValue<T>) ((ISetValue<T>)Then).SetValue(value);
-            else if (Then is ISetValue) ((ISetValue)Then).SetValue(value);
-            if (Else is ISetValue<T>) ((ISetValue<T>)Else).SetValue(value);
-            else if (Else is ISetValue) ((ISetValue)Else).SetValue(value);
-        }
 
         public bool Invoke()
         {
@@ -304,13 +260,6 @@ namespace MyDelegates
             else if (Then is IContainer) ((IContainer)Then).SetAction();
         }
 
-        void ISetValue.SetValue<T>(T value)
-        {
-            if (If is ISetValue<T>) ((ISetValue<T>)If).SetValue(value);
-            else if (If is ISetValue) ((ISetValue)If).SetValue(value);
-            if (Then is ISetValue<T>) ((ISetValue<T>)Then).SetValue(value);
-            else if (Then is ISetValue) ((ISetValue)Then).SetValue(value);
-        }
 
         public bool Invoke()
         {
@@ -415,7 +364,7 @@ namespace MyDelegates
             for (int i = 0; i < _meths.Count;)
             {
                 StringBuilder name = new StringBuilder();
-                if(_meths[i].IsStatic) name.Append("s_");
+                if(!IsStatic && _meths[i].IsStatic) name.Append("s_");
                 var temp = _meths[i].ReturnType.ToString();
                 name.Append(temp.Substring(temp.LastIndexOf('.') + 1) + " ");
                 name.Append(_meths[i].Name + " ");

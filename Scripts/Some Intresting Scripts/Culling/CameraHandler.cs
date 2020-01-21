@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 
-public class Camering : MonoBehaviour
+public class CameraHandler : MonoBehaviour
 {
 
-    public float asp;
+    public float asp = 1.6f;
 
     public static float addedX = 0;
     public static float twoAddedX = 0;

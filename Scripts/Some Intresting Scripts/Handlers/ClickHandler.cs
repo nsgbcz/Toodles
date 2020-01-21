@@ -41,10 +41,10 @@ public class ClickHandler : MonoBehaviour
         //if (GameScene.Stop) return;
 #if UNITY_EDITOR
         if (Input.GetMouseButtonDown(0)) Down(0);//, Camering.ScreenToWorldPoint(Input.mousePosition));
-        else if (Input.GetMouseButtonUp(0)) Up(0, Camering.ScreenToWorldPoint(Input.mousePosition));
+        else if (Input.GetMouseButtonUp(0)) Up(0, CameraHandler.ScreenToWorldPoint(Input.mousePosition));
 
         if (Input.GetMouseButtonDown(1)) Down(1);//, Camering.ScreenToWorldPoint(Input.mousePosition));
-        else if (Input.GetMouseButtonUp(1)) Up(1, Camering.ScreenToWorldPoint(Input.mousePosition));
+        else if (Input.GetMouseButtonUp(1)) Up(1, CameraHandler.ScreenToWorldPoint(Input.mousePosition));
 #else
         var touches = Input.touches;
         //Touch[] endends = new Touch[0];

@@ -2,15 +2,6 @@
 //using UnityEngine.Purchasing;
 using System;
 
-public interface IGet<T>
-{
-    T Get { get; }
-}
-public interface ISet<T>
-{
-    T Set { set; }
-}
-public interface IVar<T> : IGet<T>, ISet<T> { }
 public interface IAction
 {
     void Action();
@@ -20,12 +11,23 @@ public interface IInvoke<T>
 {
     T Invoke();
 }
+public interface IGet<T>
+{
+    T Get { get; }
+}
+public interface ISet<T>
+{
+    T Set { set; }
+}
+public interface IVar<T> : IGet<T>, ISet<T> { }
+
 /*public interface IIAPListener
 {
     string ID { get; }
 
     PurchaseProcessingResult Action();
 }*/
+
 public interface ISigner
 {
     void Subscribe(params Action[] acts);

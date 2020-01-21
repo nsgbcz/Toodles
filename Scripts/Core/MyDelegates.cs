@@ -100,7 +100,7 @@ namespace MyDelegates
         protected virtual bool fun() { return true; }
         protected virtual bool fun(int i) { return true; }
     }
-    public abstract class MyDelegate<T> : MyDelegate, ISetValue<T>//, IDrawGizmosSelected
+    public abstract class MyDelegate<T> : MyDelegate//, IDrawGizmosSelected
     {
         public T value1 = default;
 
@@ -122,8 +122,6 @@ namespace MyDelegates
             if (ms == null) return;
             foreach (var m in ms) m?.OnDrawGizmosSelected();
         }*/
-
-        public void SetValue(T value) => value1 = value;
     }
     public abstract class MyDelegate<T1, T2> : MyDelegate<T1>
     {
