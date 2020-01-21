@@ -117,7 +117,7 @@ public struct DeltaTime : IGet<float>
 
 Okay, we have some delegate in our container it's time to execute it.
 
-The way is just declare IInvoke`<`bool`>` in an any Odin Serialized script ([see Odin documentation] (https://odininspector.com/odin-serializer)).
+The way is just declare IInvoke`<`bool`>` in an any Odin Serialized script ([see Odin documentation](https://odininspector.com/odin-serializer)).
 
 I made several scripts for this goal:
 
