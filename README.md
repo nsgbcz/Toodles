@@ -4,8 +4,7 @@ Blueprint system for Unity, that **requires [Odin Inspector](https://odininspect
 # Core
 There is several main files:
 
--**MyInterfaces.cs** declarates interfaces for extensions and handlings.
-
+⋅⋅***MyInterfaces.cs** declarates interfaces for extensions and handlings.
 -**MyDelegates.cs** implements some classes to containing of delegates and the arguments to use them. It is very dirty for observing but useful for system at all.
 -**MyContainers.cs** implements several containers, that handle the executing of MyDelegates, and builder, that assembles MyDelegates.
 ##IInvoke<bool>
