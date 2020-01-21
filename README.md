@@ -1,5 +1,5 @@
 # UnityBlueprintSystem
-Blueprint system for Unity, that **requires [Odin Inspector](https://odininspector.com)**
+Blueprint system for Unity, that **REQUIRES [Odin Inspector](https://odininspector.com)**
 
 # Why use Odin?
   **Odin Inspector** allow as simply and conveniently show interfaces, delegates, types and other variables. So we can do a lot more things that makes our developing easier. This asset is one of them.
