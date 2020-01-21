@@ -14,13 +14,13 @@ Blueprint system for Unity, that **requires [Odin Inspector](https://odininspect
   
   **Hereinafter "MyDelegates" means classes and them instances, that are contained in *MyDelegates.cs* and correspond to its appointment.**
 
-- ## IInvoke`<bool>`
+## IInvoke`<bool>`
   
   All MyDelegates are inherited from this interface, that forced implement them **bool Invoke()** method.
   
   In MyDelegates the **Invoke** returnes true when the delegate contained in MyDelegate is completely executed (returned true or the MyDelegate is marked as **oneInvocation**)
   
-- ## IContainer
+## IContainer
   All containers have a kind of array with MyDelegates and builders in them. 
   
   All of them have a method that makes builders the MyDelegates and this method is shown in Inspector as button. 
@@ -35,12 +35,12 @@ Blueprint system for Unity, that **requires [Odin Inspector](https://odininspect
   * The **ListContainer** just executes all array and remove those of them, who returned true. Its **Invoke** returns true if there is no elements to execute.
   * The **Sequence**'s **Invoke** return if there is no elements to execute, removes MyDelegates if they true, stops and return false if some MyDelegate has returned false.
   
-- ## ReferenceMethodBuilder
+## ReferenceMethodBuilder
   Has two modes:
   * **IsStatic = true**: takes a **TypeInfo** as target class that will be explored and **then** you should choose its static method that you want to implement.
   * **IsStatic = false**: take an **object** as target that will be explored, **then** you choose **Type** of object, **then** choose any method that you want to implement.
   
   ![ReferenceMethodBuilder](https://github.com/nsgbcz/UnityBlueprintSystem/blob/master/Screens/ReferenceMethodBuilder.png)
   
-  The **FreshType** button help us if Odin lost our private data.
+  The **FreshType** button help us if variables "Meth" and "Type" was reset.
   
