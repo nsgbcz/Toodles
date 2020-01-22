@@ -1,9 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using BP;
 
 public static class Samples
 {
+    public static void MoveTowards(IGet<Transform> source, IGet<Vector2> target , IGet<float> speed)
+    {
+        source.Get.position = Vector2.MoveTowards(source.Get.position, target.Get, speed.Get);
+    }
+
     public static void SetColor(IGet<SpriteRenderer> rend,IGet<Color> color)
     {
         rend.Get.color = color.Get;
