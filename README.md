@@ -1,7 +1,7 @@
 # UnityBlueprintSystem
 Blueprint system for Unity, that **REQUIRES [Odin Inspector](https://odininspector.com)**.  
 Requires minimum code writing, makes it very flexible.  
-It makes prototyping and developing more easyer and faster.
+It makes prototyping and developing more easier and faster.
 
 Contact me on deplmgms@gmail.com .
 
