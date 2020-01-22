@@ -3,6 +3,8 @@ Blueprint system for Unity, that **REQUIRES [Odin Inspector](https://odininspect
 Requires minimum code writing, makes it very flexible.  
 It makes prototyping and developing more easyer and faster.
 
+Contact me on deplmgms@gmail.com .
+
 # Installation
 Download and import the **BlueprintSystem.unitypackage** into the your Unity project, then or before go to asset store and buy/download/import [Odin - Inspector and Serializer](https://assetstore.unity.com/packages/tools/utilities/odin-inspector-and-serializer-89041).
 ## Why i use Odin in package?
