@@ -3,28 +3,30 @@ using Sirenix.OdinInspector;
 
 namespace BP
 {
-    #region Main
-    public class Value<T> : IVar<T>
+#region Main
+public struct Value<T> : IVar<T>
     {
         public T value;
         public T Get => value;
         public T Set { set => this.value = value; }
     }
-    public class Var<T> : IVar<T>
+    public struct Var<T> : IVar<T>
     {
         public IVar<T> Value;
-        public virtual T Get => Value.Get;
-        public virtual T Set { set => Value.Set = value; }
+        public T Get => Value.Get;
+        public T Set { set => Value.Set = value; }
     }
-    public class Getter<T> : IGet<T>
+    public struct Getter<T> : IVar<T>
     {
         public IGet<T> Value;
-        public virtual T Get => Value.Get;
+        public T Get => Value.Get;
+        public T Set { set => throw new System.NotImplementedException(); }
     }
-    public class Setter<T> : ISet<T>
+    public struct Setter<T> : IVar<T>
     {
         public ISet<T> Value;
-        public virtual T Set { set => Value.Set = value; }
+        public T Get => throw new System.NotImplementedException();
+        public T Set { set => Value.Set = value; }
     }
     public class GlobalVariable<T> : SerializedScriptableObject, IVar<T>
     {
@@ -32,6 +34,7 @@ namespace BP
         public virtual T Get => variable.Get;
         public virtual T Set { set => variable.Set = value; }
     }
+
     public struct GetComponent<T> : IGet<T>
     {
         public IGet<GameObject> Value;

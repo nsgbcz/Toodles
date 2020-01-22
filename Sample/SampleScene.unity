@@ -667,7 +667,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1801182972}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -688,24 +688,115 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 1801182974}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
     - Name: methList
-      Entry: 6
-      Data: 
-    - Name: SetVector
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[BP.ISet`1[[UnityEngine.Vector2, UnityEngine.CoreModule]],
+      Data: 0|BP.Delegates.ListContainer, Assembly-CSharp
+    - Name: Meths
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[BP.IInvoke`1[[System.Boolean, mscorlib]],
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 2|BP.Delegates.Act`2[[BP.IGet`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
+        Assembly-CSharp],[BP.IGet`1[[UnityEngine.Vector2, UnityEngine.CoreModule]],
+        Assembly-CSharp]], Assembly-CSharp
+    - Name: oneInvocation
+      Entry: 5
+      Data: false
+    - Name: value1
+      Entry: 7
+      Data: 3|BP.Value`1[[UnityEngine.Transform, UnityEngine.CoreModule]], Assembly-CSharp
+    - Name: value
+      Entry: 10
       Data: 0
     - Name: 
+      Entry: 8
+      Data: 
+    - Name: value2
+      Entry: 7
+      Data: 4|BP.MousePosition, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: del
+      Entry: 7
+      Data: 5|System.Action`2[[BP.IGet`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
+        Assembly-CSharp],[BP.IGet`1[[UnityEngine.Vector2, UnityEngine.CoreModule]],
+        Assembly-CSharp]], mscorlib
+    - Name: declaringType
+      Entry: 7
+      Data: 6|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: Samples, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: methodName
+      Entry: 1
+      Data: SetPosition
+    - Name: delegateType
+      Entry: 7
+      Data: 7|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: System.Action`2[[BP.IGet`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
+        Assembly-CSharp],[BP.IGet`1[[UnityEngine.Vector2, UnityEngine.CoreModule]],
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: signature
+      Entry: 7
+      Data: 8|System.Type[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 9|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: BP.IGet`1[[UnityEngine.Transform, UnityEngine.CoreModule]], Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 10|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: BP.IGet`1[[UnityEngine.Vector2, UnityEngine.CoreModule]], Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
       Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: 
       Entry: 8

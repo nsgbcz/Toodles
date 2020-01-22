@@ -8,10 +8,32 @@ namespace BP
     {
         public IAction action;
 
-        [Button]
         public void Action()
         {
             action?.Action();
+        }
+
+        public class SimpleExecute : IExecute
+        {
+            public Delegates.IContainer GetContainer
+            {
+                get
+                {
+                    return methList;
+                }
+            }
+            public Delegates.IContainer methList = new Delegates.ListContainer();
+
+            public bool Invoke()
+            {
+                return methList.Invoke();
+            }
+
+            [Button]
+            public virtual void Action()
+            {
+                if (this != null) Invoke();
+            }
         }
     }
 }

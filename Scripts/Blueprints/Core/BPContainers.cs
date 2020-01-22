@@ -25,7 +25,6 @@ namespace BP.Delegates
     //{
     //    ISetValue<T> GetAct();
     //}
-
     public interface IContainer : IInvoke<bool>//, IDrawGizmosSelected
     {
         void SetAction();

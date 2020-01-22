@@ -7,18 +7,10 @@ namespace BP
     {
         public enum EventTime { MouseDown, MouseUp, MouseDrag, MouseEnter, MouseExit, MouseOver, MouseUpAsButton }
 
-        [Tooltip("Copy/Paste >Reference< of ISetValue<Vector2> from MethList (for collision)")]
-        public List<ISet<Vector2>> SetVector = new List<ISet<Vector2>>();
-
         public MyEnumMask EventMask = new MyEnumMask(typeof(EventTime));
 
         public override void Action()
         {
-            if (SetVector.Count > 0)
-            {
-                Vector2 pos = CameraHandler.MainCamera.ScreenToWorldPoint(Input.mousePosition);
-                foreach (var item in SetVector) item.Set = pos;
-            }
             base.Action();
         }
 
