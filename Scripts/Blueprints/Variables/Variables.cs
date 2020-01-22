@@ -4,13 +4,13 @@ using Sirenix.OdinInspector;
 namespace BP
 {
 #region Main
-public struct Value<T> : IVar<T>
+    public class Value<T> : IVar<T>
     {
         public T value;
         public T Get => value;
         public T Set { set => this.value = value; }
     }
-    public struct Var<T> : IVar<T>
+    public class Var<T> : IVar<T>
     {
         public IVar<T> Value;
         public T Get => Value.Get;
@@ -22,7 +22,7 @@ public struct Value<T> : IVar<T>
         public T Get => Value.Get;
         public T Set { set => throw new System.NotImplementedException(); }
     }
-    public struct Setter<T> : IVar<T>
+    public class Setter<T> : IVar<T>
     {
         public ISet<T> Value;
         public T Get => throw new System.NotImplementedException();
@@ -63,6 +63,29 @@ public struct Value<T> : IVar<T>
     }
     #endregion
     #region Variables
+    #region Bool
+    public struct Nor : IGet<bool>, IInvoke<bool>
+    {
+        public IGet<bool> Value;
+        public bool Get => !Value.Get;
+
+        public bool Invoke()
+        {
+            return Get;
+        }
+    }
+    public struct IsNull : IGet<bool>, IInvoke<bool>
+    {
+        public Object value;
+        public bool Get => value == null;
+
+        public bool Invoke()
+        {
+            return Get;
+        }
+    }
+
+    #endregion
     #region Color
     public struct SpriteRendererToColor : IGet<Color>
     {
@@ -85,6 +108,11 @@ public struct Value<T> : IVar<T>
     public struct CollisionToGameObject : IGet<GameObject>
     {
         public IGet<Collision2D> Value;
+        public GameObject Get => Value.Get.gameObject;
+    }
+    public struct ColliderToGameObject : IGet<GameObject>
+    {
+        public IGet<Collider2D> Value;
         public GameObject Get => Value.Get.gameObject;
     }
     #endregion

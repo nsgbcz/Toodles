@@ -31,4 +31,9 @@ public static class Samples
     {
         UnityEngine.Debug.Log(log);
     }
+
+    public static void Destroy(IGet<GameObject> target)
+    {
+        Object.Destroy(target.Get);
+    }
 }

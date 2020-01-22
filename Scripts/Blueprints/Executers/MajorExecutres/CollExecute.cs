@@ -37,7 +37,7 @@ namespace BP
         [ShowIf("useTags")]
         public bool ignore = false;
         [ShowIf("useTags")]
-        public string[] collisionTags = new string[] { "Ball", "Explosion" };
+        public string[] collisionTags = new string[] { };
 
         private bool enable;
 
