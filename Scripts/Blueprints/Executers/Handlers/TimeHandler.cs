@@ -96,23 +96,23 @@ namespace BP
             if (scaled)
             {
                 var i = this.scaled.FindIndex(e => e.Item2 == act);
-                if (i > 0) this.scaled.RemoveAt(i);
+                if (i >= 0) this.scaled.RemoveAt(i);
             }
             else
             {
                 var i = unscaled.FindIndex(e => e.Item2 == act);
-                if (i > 0) unscaled.RemoveAt(i);
+                if (i >= 0) unscaled.RemoveAt(i);
             }
         }
 
         public void RemoveEvent(Action act)
         {
             var i = scaled.FindIndex(e => e.Item2 == act);
-            if (i > 0) scaled.RemoveAt(i);
+            if (i >= 0) scaled.RemoveAt(i);
             else
             {
                 i = unscaled.FindIndex(e => e.Item2 == act);
-                if (i > 0) unscaled.RemoveAt(i);
+                if (i >= 0) unscaled.RemoveAt(i);
             }
         }
 
