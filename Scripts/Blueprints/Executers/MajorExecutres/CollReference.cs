@@ -3,9 +3,9 @@ using UnityEngine;
 
 namespace BP
 {
-    public class CollReference : SerializedMonoBehaviour, IColl
+    public class CollReference : SerializedMonoBehaviour, IColl2D
     {
-        public IColl[] targets = new IColl[0];
+        public IColl2D[] targets = new IColl2D[0];
 
         public void OnCollisionEnter2D(Collision2D coll)
         {

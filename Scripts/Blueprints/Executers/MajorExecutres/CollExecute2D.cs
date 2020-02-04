@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace BP
 {
-    public class CollExecute : Execute, ICollision, ITrigger, IColl
+    public class CollExecute2D : Execute, ICollision2D, ITrigger2D, IColl2D
     {
         public MyEnumMask EventMask = new MyEnumMask(typeof(EventTime));
 
@@ -22,10 +22,10 @@ namespace BP
         }
 
         [Tooltip("Copy/Paste >Reference< of ISetValue<Collision2D> from MethList (for collision)")]
-        public List<ISet<Collision>> SetCollision = new List<ISet<Collision>>();
+        public List<ISet<Collision2D>> SetCollision = new List<ISet<Collision2D>>();
 
         [Tooltip("Copy/Paste >Reference< of ISetValue<Collider2D> from MethList (for trigger)")]
-        public List<ISet<Collider>> SetCollider = new List<ISet<Collider>>();
+        public List<ISet<Collider2D>> SetCollider = new List<ISet<Collider2D>>();
 
         public bool useLayer = true;
         [ShowIf("useLayer")]
@@ -57,20 +57,20 @@ namespace BP
             enable = false;
         }
 
-        public void Action(Collision coll)
+        public void Action(Collision2D coll)
         {
             foreach (var item in SetCollision) { item.Set = coll; }
             Action();
         }
 
-        public void Action(Collider coll)
+        public void Action(Collider2D coll)
         {
             foreach (var item in SetCollider) item.Set = coll;
             Action();
         }
 
         bool[] permissions = new bool[6];
-        public virtual void OnCollisionEnter(Collision coll)
+        public virtual void OnCollisionEnter2D(Collision2D coll)
         {
             if (enable && permissions[0])
             {
@@ -79,7 +79,7 @@ namespace BP
             }
         }
 
-        public virtual void OnCollisionExit(Collision coll)
+        public virtual void OnCollisionExit2D(Collision2D coll)
         {
             if (enable && permissions[1])
             {
@@ -88,7 +88,7 @@ namespace BP
             }
         }
 
-        public virtual void OnCollisionStay(Collision coll)
+        public virtual void OnCollisionStay2D(Collision2D coll)
         {
             if (enable && permissions[2])
             {
@@ -97,17 +97,17 @@ namespace BP
             }
         }
 
-        public virtual void OnTriggerEnter(Collider coll)
+        public virtual void OnTriggerEnter2D(Collider2D coll)
         {
             if (enable && permissions[3] && IsCollideAble(coll.gameObject.layer, coll.tag)) Action(coll);
         }
 
-        public virtual void OnTriggerExit(Collider coll)
+        public virtual void OnTriggerExit2D(Collider2D coll)
         {
             if (enable && permissions[4] && IsCollideAble(coll.gameObject.layer, coll.tag)) Action(coll);
         }
 
-        public virtual void OnTriggerStay(Collider coll)
+        public virtual void OnTriggerStay2D(Collider2D coll)
         {
             if (enable && permissions[5] && IsCollideAble(coll.gameObject.layer, coll.tag)) Action(coll);
         }
