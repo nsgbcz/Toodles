@@ -7,7 +7,7 @@ using Sirenix.OdinInspector;
 
 namespace Toodles.Delegates
 {
-    public struct OneInvocation : IIterate
+    public struct OneInvocation : IIteratable
     {
         [Required]
         public IAction act;
@@ -18,7 +18,7 @@ namespace Toodles.Delegates
             return true;
         }
     }
-    public struct ManyInvocation : IIterate
+    public struct ManyInvocation : IIteratable
     {
         [Required]
         public IAction act;
@@ -29,10 +29,10 @@ namespace Toodles.Delegates
             return false;
         }
     }
-    public struct FrameDelayExecute : IIterate
+    public struct FrameDelayExecute : IIteratable
     {
         [SerializeField, Required]
-        IIterate iterate;
+        IIteratable iterate;
         [SerializeField, Required]
         IGet<int> delay;
 
@@ -51,10 +51,10 @@ namespace Toodles.Delegates
             if (!executed) executed = iterate.Iterate();
         }
     }
-    public struct DelayExecute : IIterate
+    public struct DelayExecute : IIteratable
     {
         [SerializeField, Required]
-        IIterate iterate;
+        IIteratable iterate;
         [SerializeField, Required]
         IGet<float> delay;
         [SerializeField, Required]
@@ -75,10 +75,10 @@ namespace Toodles.Delegates
             if(!executed) executed = iterate.Iterate();
         }
     }
-    public struct TimeExecute : IIterate
+    public struct TimeExecute : IIteratable
     {
         [SerializeField, Required]
-        IIterate iterate;
+        IIteratable iterate;
         [SerializeField, Required]
         IGet<float>  time;
         [SerializeField, Required]
