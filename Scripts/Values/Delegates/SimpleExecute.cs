@@ -11,7 +11,7 @@ namespace Toodles.Delegates
     public class SimpleExecute : IExecute
     {
         [Required, SerializeField]
-        IIteratable iterate = new ListIterable();
+        IIterate iterate = new List();
 
         public bool Iterate()
         {

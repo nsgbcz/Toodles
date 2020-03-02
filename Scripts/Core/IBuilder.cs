@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 namespace Toodles.Delegates
 {
-    public interface IIterate
+    interface IBuilder
     {
-        bool Iterate();
+        IIterate GetAct();
     }
 }
