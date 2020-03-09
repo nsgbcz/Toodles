@@ -33,25 +33,51 @@ namespace Toodles.Handlers
             }
         }
 
-        Queue<Action> calls = new Queue<Action>();
+        Queue<Action> Callbacks = new Queue<Action>();
         public void LateUpdate()
         {
-            while(calls.Count > 0) calls.Dequeue().Invoke();
+            if (Callbacks.Count > 0)
+            {
+                lock (Callbacks)
+                {
+                    do
+                    {
+                        Callbacks.Dequeue().Invoke();
+                    }
+                    while (Callbacks.Count > 0);
+                }
+            }
         }
 
         public static void Action(Action async, Action callback)
         {
-            Get?.BeginJob(async, callback);
+            Get?.Begin(async, callback);
+        }
+        public static void Action(Action async)
+        {
+            Get?.Begin(async);
         }
 
-        void BeginJob(Action act, Action callback)
+        void Begin(Action act, Action callback)
         {
-            new Task(Execute).Start();
+            ThreadPool.QueueUserWorkItem(Execute);
 
-            void Execute()
+            void Execute(object obj)
             {
                 act?.Invoke();
-                calls.Enqueue(callback);
+                lock (Callbacks) 
+                {
+                    Callbacks.Enqueue(callback); 
+                }
+            }
+        }
+        void Begin(Action act)
+        {
+            ThreadPool.QueueUserWorkItem(Execute);
+
+            void Execute(object obj)
+            {
+                act?.Invoke();
             }
         }
     }
