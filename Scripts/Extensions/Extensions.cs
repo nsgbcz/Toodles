@@ -194,29 +194,5 @@ namespace Toodles
             }
             return pow;
         }
-
-        public static void Execute(this List<Func<bool>> list)
-        {
-            for (int i = 0; i < list.Count;)
-            {
-                if (list[i].Invoke())
-                {
-                    list.RemoveAt(i);
-                }
-                else i++;
-            }
-        }
-        public static void Execute(this Collections.InputSortedList<Collections.OrderableValue<Func<bool>, int>> list)
-        {
-            for (int i = 0; i < list.Count;)
-            {
-                if (list[i].value.Invoke())
-                {
-                    list.RemoveAt(i);
-                }
-                else i++;
-            }
-        }
-        
     }
 }

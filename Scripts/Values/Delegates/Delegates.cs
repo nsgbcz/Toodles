@@ -65,7 +65,8 @@ namespace Toodles.Delegates
         {
             if (!executed)
             {
-                TimeEventHandler.ExecuteThroughTime(Action, delay.Value, scaled.Value);
+                if(scaled.Value) ScaledTimeEventHandler.ExecuteThroughTime(Action, delay.Value);
+                else UnscaledTimeEventHandler.ExecuteThroughTime(Action, delay.Value);
             }
             return executed; 
         }
@@ -89,7 +90,8 @@ namespace Toodles.Delegates
         {
             if (!executed)
             {
-                TimeEventHandler.ExecuteOnTime(Action, time.Value, scaled.Value);
+                if (scaled.Value) ScaledTimeEventHandler.ExecuteOnTime(Action, time.Value);
+                else UnscaledTimeEventHandler.ExecuteOnTime(Action, time.Value);
             }
             return executed;
         }
