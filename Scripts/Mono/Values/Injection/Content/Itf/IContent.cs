@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Toodles.Variables.Containers
+namespace Toodles.Variables.Injection
 { 
-    public interface IContainable { }
+    public interface IContent { }
 }

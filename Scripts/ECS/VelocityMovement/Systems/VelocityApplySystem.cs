@@ -17,9 +17,10 @@ public class VelocityApplySystem : JobComponentSystem
         public float DeltaTime;
 
         public void Execute(ref PhysicsVelocity    bodyVelocity,
-                  [ReadOnly]ref UnscaledLinearVelocityData velocityData)
+                            ref UnscaledLinearVelocityData velocityData)
         {
             bodyVelocity.Linear = velocityData.value * DeltaTime;
+            velocityData = float3.zero;
         }
     }
     protected override JobHandle OnUpdate(JobHandle inputDeps)

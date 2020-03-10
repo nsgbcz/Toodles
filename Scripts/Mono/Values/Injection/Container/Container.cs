@@ -2,22 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Toodles.Variables.Containers
+namespace Toodles.Variables.Injection
 {
     public class Container : IContainer
     {
-        [SerializeField] Dictionary<string, IVar<IContainable>> values = new Dictionary<string, IVar<IContainable>>();
+        [SerializeField] Dictionary<string, IVar<IContent>> values = new Dictionary<string, IVar<IContent>>();
 
-        public void SetValue<T>(string key, T value) where T : IContainable
+        public void SetValue<T>(string key, T value) where T : IContent
         {
             if (values.ContainsKey(key))
             {
                 values.Remove(key);
             }
-            values.Add(key, new Value<IContainable>(value));
+            values.Add(key, new Value<IContent>(value));
         }
 
-        public bool TryGetValue<T>(string key, out T value) where T : IContainable
+        public bool TryGetValue<T>(string key, out T value) where T : IContent
         {
             if (values.TryGetValue(key, out var var))
             {

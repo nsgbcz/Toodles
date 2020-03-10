@@ -4,10 +4,13 @@ using Sirenix.OdinInspector;
 namespace Toodles.Variables
 {
     using Handlers;
-    public class CachedValue<T> : IVar<T>
+    using Injection;
+    public class CachedContainer<T> : IVar<T> where T : IContent
     {
-        [SerializeField, Required, HideLabel]
-        IVar<T> value;
+        [AssetSelector, SerializeField, Required]
+        IGet<string> key;
+        [AssetSelector, SerializeField, Required]
+        IContainer container;
 
         IVar<T> cache;
         public T Value
@@ -24,7 +27,9 @@ namespace Toodles.Variables
         {
             if (cache != null) return;
 
-            cache = new Value<T>(value.Value);
+            cache = new Value<T>();
+            if (container.TryGetValue(key.Value, out T value))
+                cache.Value = value;
             ApplicationQuitHandler.Subscribe(Reset);
         }
 

@@ -23,7 +23,7 @@ namespace Toodles.Handlers
             {
                 _get = GameObject.FindObjectOfType<ScaledTimeEventHandler>();
 
-                if (!ApplicationHandler.Quitting && _get == null)
+                if (!ApplicationQuitHandler.Quitting && _get == null)
                 {
                     _get = new GameObject("EventHandler").AddComponent<ScaledTimeEventHandler>();
                     DontDestroyOnLoad(_get);

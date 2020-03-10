@@ -3,8 +3,8 @@ using Sirenix.OdinInspector;
 
 namespace Toodles.Variables
 {
-    using Containers;
-    public class Container<T> : IVar<T> where T : IContainable
+    using Injection;
+    public class Container<T> : IVar<T> where T : IContent
     {
         [AssetSelector]
         [SerializeField, Required] 

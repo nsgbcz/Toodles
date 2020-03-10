@@ -7,7 +7,7 @@ namespace Toodles.Variables
     {
         [SerializeField, Required, HideLabel]
         T value;
-
+        public Value() { }
         public Value(T value)// : this()
         {
             this.value = value;

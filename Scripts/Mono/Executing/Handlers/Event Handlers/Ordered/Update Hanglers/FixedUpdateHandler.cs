@@ -22,7 +22,7 @@ namespace Toodles.Handlers
             {
                 var handlers = GameObject.FindObjectOfType<FixedUpdateHandler>();
 
-                if (!ApplicationHandler.Quitting && _get == null)
+                if (!ApplicationQuitHandler.Quitting && _get == null)
                 {
                     _get = new GameObject("EventHandler").AddComponent<FixedUpdateHandler>();
                     GameObject.DontDestroyOnLoad(_get);

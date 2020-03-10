@@ -24,7 +24,7 @@ namespace Toodles.Handlers
             {
                 _get = GameObject.FindObjectOfType<ResumeHandler>();
 
-                if (!ApplicationHandler.Quitting && _get == null)
+                if (!ApplicationQuitHandler.Quitting && _get == null)
                 {
                     _get = new GameObject("EventHandler").AddComponent<ResumeHandler>();
                     DontDestroyOnLoad(_get);

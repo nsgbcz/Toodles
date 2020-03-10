@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Toodles.Handlers
 {
-    public class QuitHandler : IntOrderedHandler
+    public class ApplicationQuitHandler : IntOrderedHandler
     {
         private static IntOrderedHandler _get = null;
         private static IntOrderedHandler Get
@@ -22,11 +22,11 @@ namespace Toodles.Handlers
         {
             if (_get == null)
             {
-                _get = GameObject.FindObjectOfType<QuitHandler>();
+                _get = GameObject.FindObjectOfType<ApplicationQuitHandler>();
 
-                if (!Quit && _get == null)
+                if (!Quitting && _get == null)
                 {
-                    _get = new GameObject("EventHandler").AddComponent<QuitHandler>();
+                    _get = new GameObject("EventHandler").AddComponent<ApplicationQuitHandler>();
                     DontDestroyOnLoad(_get);
                 }
             }
@@ -37,8 +37,8 @@ namespace Toodles.Handlers
             SceneManager.sceneLoaded += Loaded;
         }
 
-        public static bool Quit { get; private set; } = false;
-        public static bool SceneClosed { get; private set; } = false;
+        public static bool Quitting { get; private set; } = false;
+        public static bool SceneClosing { get; private set; } = false;
 
         public static void Subscribe(Action act, int order = 0)
         {
@@ -64,18 +64,18 @@ namespace Toodles.Handlers
 
         void Unloaded(Scene scene)
         {
-            SceneClosed = true;
+            SceneClosing = true;
         }
 
         void Loaded(Scene scene, LoadSceneMode mode)
         {
-            SceneClosed = false;
+            SceneClosing = false;
         }
 
         void OnApplicationQuit()
         {
-            SceneClosed = true;
-            Quit = true;
+            SceneClosing = true;
+            Quitting = true;
 
             Action();
         }
