@@ -2,16 +2,20 @@
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-public struct EntitySender :  IConvertGameObjectToEntity
-{
-    [Required]
-    public IReceiveEntity[] EntityReceivers;
 
-    public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
+namespace ToodlesECS
+{
+    public struct EntitySender : IConvertGameObjectToEntity
     {
-        for (int i = 0; i < EntityReceivers.Length; i++)
+        [Required]
+        public IReceiveEntity[] EntityReceivers;
+
+        public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
         {
-            EntityReceivers[i].SetReceivedEntity(entity);
+            for (int i = 0; i < EntityReceivers.Length; i++)
+            {
+                EntityReceivers[i].SetReceivedEntity(entity);
+            }
         }
     }
 }

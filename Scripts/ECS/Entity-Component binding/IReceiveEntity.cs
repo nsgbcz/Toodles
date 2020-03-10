@@ -1,6 +1,10 @@
 ﻿using Unity.Entities;
 
-public interface IReceiveEntity
+
+namespace ToodlesECS
 {
-    void SetReceivedEntity(Entity entity);
-}
+    public interface IReceiveEntity
+    {
+        void SetReceivedEntity(Entity entity);
+    }
+} 

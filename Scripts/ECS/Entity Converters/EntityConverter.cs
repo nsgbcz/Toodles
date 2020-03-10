@@ -2,12 +2,18 @@
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-public class EntityConverter : SerializedMonoBehaviour, IConvertGameObjectToEntity
+namespace ToodlesECS
 {
-    public IConvertGameObjectToEntity convertor;
-
-    public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
+    public class EntityConverter : SerializedMonoBehaviour, IConvertGameObjectToEntity
     {
-        convertor.Convert(entity, dstManager, conversionSystem);
+        public IConvertGameObjectToEntity[] convertors = new IConvertGameObjectToEntity[0];
+
+        public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
+        {
+            for (int i = 0; i < convertors.Length; i++)
+            {
+                convertors[i].Convert(entity, dstManager, conversionSystem);
+            }
+        }
     }
 }
