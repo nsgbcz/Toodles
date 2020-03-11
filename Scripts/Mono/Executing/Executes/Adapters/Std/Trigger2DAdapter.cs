@@ -9,7 +9,7 @@ namespace Toodles.Executes.Adapters
     using Executes;
     using UnityEngine.EventSystems;
 
-    public class Trigger2DAdapter : BaseAdapter<ITrigger2D>, IExecute, IMouse, IPointer, ICollision, ICollision2D, ITrigger, ITrigger2D, IExecuteAdapter
+    public class Trigger2DAdapter : BaseAdapter<ITrigger2D>, IExecute, IMouse, IPointer, ICollision, ICollision2D, ITrigger, ITrigger2D
     {
         void IAction.Action()
         {

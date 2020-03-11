@@ -8,7 +8,7 @@ namespace Toodles.Executes.Adapters
     using Iterates;
     using UnityEngine.EventSystems;
 
-    public class IteratableAdapter : BaseAdapter<IIteratable>, IExecute, IMouse, IPointer, ICollision, ICollision2D, ITrigger, ITrigger2D, IExecuteAdapter
+    public class IteratableAdapter : BaseAdapter<IIteratable>, IExecute, IMouse, IPointer, ICollision, ICollision2D, ITrigger, ITrigger2D
     {
         void IAction.Action()
         {
