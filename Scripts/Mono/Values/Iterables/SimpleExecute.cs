@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-namespace Toodles.Delegates
+namespace Toodles.Iterates
 {
-    using Executers;
+    using Executes;
     using Controllers;
 
     public class SimpleExecute : IExecute

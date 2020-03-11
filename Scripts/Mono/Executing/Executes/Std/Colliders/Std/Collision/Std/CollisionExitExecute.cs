@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Toodles.Executers
+namespace Toodles.Executes
 {
-    public class CollisionExitExecute : CollisionExecute
+    public class CollisionExitExecute : CollisionExecute, ICollisionExit
     {
         private void OnCollisionExit(Collision coll)
         {
-            ExitAction(coll);
+            Action(coll);
         }
     }
 }

@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Toodles.Executers
+namespace Toodles.Executes
 {
-    public class MouseEnterExecute : MouseExecute
+    public class MouseEnterExecute : MouseExecute, IMouseEnter
     {
         private void OnMouseEnter()
         {
-            base.Action();
+            Action();
         }
     }
 }

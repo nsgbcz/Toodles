@@ -2,13 +2,13 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Toodles.Executers
+namespace Toodles.Executes
 {
-    public class PointerUpExecute : PointerExecute, IPointerUpHandler
+    public class PointerUpExecute : PointerExecute, IPointerUpHandler, IPointerUp
     {
         public void OnPointerUp(PointerEventData eventData)
         {
-            base.Action();
+            Action(eventData);
         }
     }
 }

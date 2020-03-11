@@ -5,7 +5,7 @@ using System;
 using System.Reflection;
 using System.Text;
 using System.Linq;
-using Toodles.Delegates;
+using Toodles.Iterates;
 
 namespace Toodles.MethodBuilders
 {

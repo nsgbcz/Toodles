@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Toodles.Executers
+namespace Toodles.Executes
 {
-    public class UpdateExecute : MainExecute
+    public class UpdateExecute : Execute
     {
         private void Update()
         {

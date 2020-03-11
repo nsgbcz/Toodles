@@ -1,26 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
-namespace Toodles.Executers 
+namespace Toodles.Executes 
 {
-    public class Trigger2DExecute : ConcretCollExecute<Collider2D>, ITriggerEnter2D, ITriggerExit2D, ITriggerStay2D
+    public class Trigger2DExecute : ConcretCollExecute<Collider2D, ITrigger2D>, ITrigger2D
     {
-        public void EnterAction(Collider2D coll)
+        public bool Action(Collider2D coll)
         {
-            base.coll = coll;
-            base.Action();
-        }
-        public void ExitAction(Collider2D coll)
-        {
-            base.coll = coll;
-            base.Action();
-        }
-
-        public void StayAction(Collider2D coll)
-        {
-            base.coll = coll;
-            base.Action();
+            if (filter.Filter(coll))
+            {
+                if(execute != null && execute.Action(coll))
+                {
+                    Destroy(this);
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

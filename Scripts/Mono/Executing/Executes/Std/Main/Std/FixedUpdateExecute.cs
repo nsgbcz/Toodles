@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Toodles.Executers
+namespace Toodles.Executes
 {
-    public class FixedUpdateExecute : MainExecute
+    public class FixedUpdateExecute : Execute
     {
         private void FixedUpdate()
         {

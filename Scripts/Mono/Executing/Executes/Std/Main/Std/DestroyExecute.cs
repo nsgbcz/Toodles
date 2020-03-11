@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Toodles.Executers
+namespace Toodles.Executes
 {
-    public class DestroyExecute : MainExecute
+    public class DestroyExecute : Execute
     {
         private void OnDestroy()
         {

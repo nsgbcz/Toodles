@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Toodles.Executers
+namespace Toodles.Executes
 {
-    public class EnableExecute : MainExecute
+    public class EnableExecute : Execute
     {
         private void OnEnable()
         {

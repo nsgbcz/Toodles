@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Toodles.Delegates;
+using Toodles.Iterates;
 
-namespace Toodles.Executers
+namespace Toodles.Executes
 {
-    public interface IExecute : IAction, IIteratable{ }
+    public interface IExecute : IAction, IIteratable
+    {
+
+    }
 }

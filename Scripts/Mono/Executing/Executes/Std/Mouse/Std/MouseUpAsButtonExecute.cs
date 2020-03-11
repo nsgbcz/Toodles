@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Toodles.Executers
+namespace Toodles.Executes
 {
-    public class MouseUpAsButtonExecute : MouseExecute
+    public class MouseUpAsButtonExecute : MouseExecute, IMouseUpAsButton
     {
         private void OnMouseUpAsButton()
         {
-            base.Action();
+            Action();
         }
     }
 }

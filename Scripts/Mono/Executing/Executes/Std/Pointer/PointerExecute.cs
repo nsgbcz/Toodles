@@ -3,32 +3,18 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 using UnityEngine.EventSystems;
 
-namespace Toodles.Executers
+namespace Toodles.Executes
 {
-    public class PointerExecute : Execute, Variables.IGet<PointerEventData>
+    public class PointerExecute : ConcreteExecute<IPointer>, IPointer
     {
-        PointerEventData data;
-        public PointerEventData Value => data;
-#if UNITY_EDITOR
-        [SerializeField, DelayedProperty]
-        internal PointerExecuteFactory.EventType  eventType = PointerExecuteFactory.EventType.Nothing;
-
-        [SerializeField, HideInInspector]
-        internal PointerExecuteFactory.EventType _eventType = PointerExecuteFactory.EventType.Nothing;
-        new protected void OnValidate()
+        public bool Action(PointerEventData data)
         {
-            if (eventType == _eventType)
+            if (execute != null && execute.Action(data))
             {
-                base.OnValidate();
-                return;
+                Destroy(this);
+                return true;
             }
-            new PointerExecuteFactory(this).Produce();
-        }
-#endif
-        public void Action(PointerEventData data)
-        {
-            this.data = data;
-            base.Action();
+            return false;
         }
     }
 }

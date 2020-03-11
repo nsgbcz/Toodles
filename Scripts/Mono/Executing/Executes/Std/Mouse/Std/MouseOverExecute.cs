@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Toodles.Executers
+namespace Toodles.Executes
 {
-    public class MouseOverExecute : MouseExecute
+    public class MouseOverExecute : MouseExecute, IMouseOver
     {
         private void OnMouseOver()
         {
-            base.Action();
+            Action();
         }
     }
 }

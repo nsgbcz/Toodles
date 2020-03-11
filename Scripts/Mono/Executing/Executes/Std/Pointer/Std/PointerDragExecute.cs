@@ -2,13 +2,13 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Toodles.Executers
+namespace Toodles.Executes
 {
-    public class PointerDragExecute : PointerExecute, IDragHandler
+    public class PointerDragExecute : PointerExecute, IDragHandler, IPointerDrag
     {
         public void OnDrag(PointerEventData eventData)
         {
-            base.Action(eventData);
+            Action(eventData);
         }
     }
 }

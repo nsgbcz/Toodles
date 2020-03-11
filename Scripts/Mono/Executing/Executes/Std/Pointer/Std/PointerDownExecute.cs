@@ -4,13 +4,13 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-namespace Toodles.Executers
+namespace Toodles.Executes
 {
-    public class PointerDownExecute : PointerExecute, IPointerDownHandler
+    public class PointerDownExecute : PointerExecute, IPointerDownHandler, IPointerDown
     {
         public void OnPointerDown(PointerEventData eventData)
         {
-           base.Action(eventData);
+           Action(eventData);
         }
     }
 }

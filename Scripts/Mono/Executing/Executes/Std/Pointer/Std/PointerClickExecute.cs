@@ -2,13 +2,13 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Toodles.Executers
+namespace Toodles.Executes
 {
-    public class PointerClickExecute : PointerExecute, IPointerClickHandler
+    public class PointerClickExecute : PointerExecute, IPointerClickHandler, IPointerClick
     {
         public void OnPointerClick(PointerEventData eventData)
         {
-            base.Action(eventData);
+            Action(eventData);
         }
     }
 }

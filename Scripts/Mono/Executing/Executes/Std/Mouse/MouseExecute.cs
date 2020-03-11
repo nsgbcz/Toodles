@@ -2,26 +2,19 @@
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-namespace Toodles.Executers
+namespace Toodles.Executes
 {
-    public class MouseExecute : Execute
+    using Iterates;
+    public class MouseExecute : ConcreteExecute<IIteratable>, IMouse
     {
-#if UNITY_EDITOR
-        [SerializeField]
-        internal MouseExecuteFactory.EventType  eventType = MouseExecuteFactory.EventType.Nothing;
-
-        [SerializeField, HideInInspector]
-        internal MouseExecuteFactory.EventType _eventType = MouseExecuteFactory.EventType.Nothing;
-
-        new protected void OnValidate()
+        public bool Action()
         {
-            if (eventType == _eventType)
+            if (execute != null && execute.Iterate())
             {
-                base.OnValidate();
-                return;
+                Destroy(this);
+                return true;
             }
-            new MouseExecuteFactory(this).Produce();
+            return false;
         }
-#endif
     }
 }

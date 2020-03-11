@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Toodles.Executers
+namespace Toodles.Executes
 {
-    public class AwakeExecute : MainExecute
+    public class AwakeExecute : Execute
     {
         private void Awake()
         {

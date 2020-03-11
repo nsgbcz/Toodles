@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace Toodles.Delegates
+namespace Toodles.Iterates
 {
     #region delegates
     #region Acts

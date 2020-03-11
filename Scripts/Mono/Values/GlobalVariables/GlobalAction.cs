@@ -4,8 +4,8 @@ using UnityEngine;
 namespace Toodles.Variables
 {
     using Controllers;
-    using Delegates;
-    using Executers;
+    using Iterates;
+    using Executes;
 
     [CreateAssetMenu(menuName = "MyAssets/Actions/GlobalAction")]
     public class GlobalAction : SerializedScriptableObject, IAction

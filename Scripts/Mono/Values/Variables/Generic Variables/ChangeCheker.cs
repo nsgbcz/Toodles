@@ -3,7 +3,7 @@ using Sirenix.OdinInspector;
 
 namespace Toodles.Variables
 {
-    using Delegates;
+    using Iterates;
     public class ChangeCheker<T> : IVar<T>
     {
         [AssetSelector]

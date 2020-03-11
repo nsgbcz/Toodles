@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Toodles.Executers
+namespace Toodles.Executes
 {
-    public class DisableExecute : MainExecute
+    public class DisableExecute : Execute
     {
         private void OnDisable()
         {

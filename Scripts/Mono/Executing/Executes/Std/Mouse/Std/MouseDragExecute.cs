@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Toodles.Executers
+namespace Toodles.Executes
 {
-    public class MouseDragExecute : MouseExecute
+    public class MouseDragExecute : MouseExecute, IMouseDrag
     {
         private void OnMouseDrag()
         {
-            base.Action();
+            Action();
         }
     }
 }

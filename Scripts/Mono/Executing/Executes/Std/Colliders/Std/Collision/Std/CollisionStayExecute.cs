@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Toodles.Executers
+namespace Toodles.Executes
 {
-    public class CollisionStayExecute : CollisionExecute
+    public class CollisionStayExecute : CollisionExecute, ICollisionStay
     {
         private void OnCollisionStay(Collision coll)
         {
-            StayAction(coll);
+            Action(coll);
         }
     }
 }

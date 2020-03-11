@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Toodles.Executers
+namespace Toodles.Executes
 {
-    public class TriggerEnter2DExecute : Trigger2DExecute
+    public class TriggerEnter2DExecute : Trigger2DExecute, ITriggerEnter2D
     {
         private void OnTriggerEnter2D(Collider2D coll)
         {
-            EnterAction(coll);
+            Action(coll);
         }
     }
 }

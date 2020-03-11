@@ -2,13 +2,13 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Toodles.Executers
+namespace Toodles.Executes
 {
-    public class PointerEnterExecute : PointerExecute, IPointerEnterHandler
+    public class PointerEnterExecute : PointerExecute, IPointerEnterHandler, IPointerEnter
     {
         public void OnPointerEnter(PointerEventData eventData)
         {
-            base.Action();
+            Action(eventData);
         }
     }
 }

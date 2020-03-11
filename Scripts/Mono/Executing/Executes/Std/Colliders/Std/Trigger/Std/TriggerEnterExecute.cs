@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Toodles.Executers
+namespace Toodles.Executes
 {
-    public class TriggerEnterExecute : TriggerExecute
+    public class TriggerEnterExecute : TriggerExecute, ITriggerEnter
     {
         private void OnTriggerEnter(Collider coll)
         {
-            EnterAction(coll);
+            Action(coll);
         }
     }
 }

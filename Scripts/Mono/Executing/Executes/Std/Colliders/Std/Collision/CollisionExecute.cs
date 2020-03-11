@@ -1,27 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
-namespace Toodles.Executers 
+namespace Toodles.Executes 
 {
-    public class CollisionExecute : ConcretCollExecute<Collision>, ICollisionEnter, ICollisionExit, ICollisionStay
+    public class CollisionExecute : ConcretCollExecute<Collision, ICollision>, ICollision
     {
-        public void EnterAction(Collision coll)
+        public bool Action(Collision coll)
         {
-            this.coll = coll;
-            base.Action();
+            if (filter.Filter(coll))
+            {
+                if (execute != null && execute.Action(coll))
+                {
+                    Destroy(this);
+                    return true;
+                }
+            }
+            return false;
         }
-        public void ExitAction(Collision coll)
-        {
-            this.coll = coll;
-            base.Action();
-        }
-
-        public void StayAction(Collision coll)
-        {
-            this.coll = coll;
-            base.Action();
-        }
-
     }
 }

@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Toodles.Executers
+namespace Toodles.Executes
 {
-    public class TriggerStayExecute : TriggerExecute
+    public class TriggerStayExecute : TriggerExecute, ITriggerStay
     {
         private void OnTriggerStay(Collider coll)
         {
-            StayAction(coll);
+            Action(coll);
         }
     }
 }

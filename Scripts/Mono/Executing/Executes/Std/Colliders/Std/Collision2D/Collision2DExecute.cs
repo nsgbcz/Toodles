@@ -2,27 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Sirenix.OdinInspector;
 
-namespace Toodles.Executers 
+namespace Toodles.Executes 
 {
-    public class Collision2DExecute : ConcretCollExecute<Collision2D>, ICollisionEnter2D, ICollisionExit2D, ICollisionStay2D
+    public class Collision2DExecute : ConcretCollExecute<Collision2D, ICollision2D>, ICollision2D
     {
-        public void EnterAction(Collision2D coll)
+        public bool Action(Collision2D coll)
         {
-            base.coll = coll;
-            base.Action();
-        }
-
-        public void ExitAction(Collision2D coll)
-        {
-            base.coll = coll;
-            base.Action();
-        }
-
-        public void StayAction(Collision2D coll)
-        {
-            base.coll = coll;
-            base.Action();
+            if (filter.Filter(coll))
+            {
+                if (execute != null && execute.Action(coll))
+                {
+                    Destroy(this);
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

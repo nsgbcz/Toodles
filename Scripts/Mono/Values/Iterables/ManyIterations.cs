@@ -3,7 +3,7 @@ using Toodles.Variables;
 using Toodles.Handlers;
 using Sirenix.OdinInspector;
 
-namespace Toodles.Delegates
+namespace Toodles.Iterates
 {
     public struct ManyIterations : IIteratable
     {

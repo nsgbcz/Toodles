@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace Toodles.Delegates
+namespace Toodles.Iterates
 {
     interface IBuilder
     {
