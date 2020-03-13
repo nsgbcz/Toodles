@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Toodles.Variables
+namespace Toodles.GlobalVariables
 {
-    [CreateAssetMenu(menuName = "MyAssets/Variables/GameObject")]
+    using Variables;
+    [CreateAssetMenu(menuName = "Toodles/Variables/GameObject")]
     public class GlobalGameObject : GlobalVariable<GameObject> { }
 }

@@ -1,25 +1,12 @@
 ﻿using Sirenix.OdinInspector;
 using System.Collections.Generic;
-using Toodles.Iterates;
+using Toodles.Actions;
 
-namespace Toodles.Controllers
+namespace Toodles.IterableControllers
 {
     public class IfElseIteratable : IIteratable, IIterableController
     {
         public IIteratable If, Then, Else;
-
-        [Button("Set Action")]
-        void IIterableController.SetAction()
-        {
-            if (If is IBuilder) If = ((IBuilder)If).GetAct();
-            else if (If is IIterableController) ((IIterableController)If).SetAction();
-            if (Then is IBuilder) Then = ((IBuilder)Then).GetAct();
-            else if (Then is IIterableController) ((IIterableController)Then).SetAction();
-            if (Else is IBuilder) Else = ((IBuilder)Else).GetAct();
-            else if (Else is IIterableController) ((IIterableController)Else).SetAction();
-        }
-
-
         public bool Iterate()
         {
             if (If != null && If.Iterate())

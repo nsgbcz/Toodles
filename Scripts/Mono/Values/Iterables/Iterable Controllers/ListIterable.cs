@@ -1,24 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Toodles.Iterates;
+using Toodles.Actions;
 using Sirenix.OdinInspector;
 
-namespace Toodles.Controllers
+namespace Toodles.IterableControllers
 {
     public class ListIterable : IIterableController
     {
         public List<IIteratable> Meths = new List<IIteratable>();
-
-        [Button("Set Action")]
-        void IIterableController.SetAction()
-        {
-            for (int i = 0; i < Meths.Count; i++)
-            {
-                if (Meths[i] is IBuilder) Meths[i] = ((IBuilder)Meths[i]).GetAct();
-                else if (Meths[i] is IIterableController) ((IIterableController)Meths[i]).SetAction();
-            }
-        }
 
         public bool Iterate()
         {

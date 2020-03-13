@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
-using Toodles.Iterates;
+using Toodles.Actions;
 
-namespace Toodles.Variables
+namespace Toodles.GlobalVariables
 {
-    [CreateAssetMenu(menuName = "MyAssets/Variables/IAction")]
+    using Variables;
+    [CreateAssetMenu(menuName = "Toodles/Variables/IAction")]
     public class GlobalIAction : GlobalVariable<IAction> { }
 }

@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace Toodles.Executes.Adapters
 {
-    using Iterates;
+    using Actions;
     using UnityEngine.EventSystems;
 
-    public class ActionAdapter : BaseAdapter<IAction>, IExecute, IMouse, IPointer, ICollision, ICollision2D, ITrigger, ITrigger2D
+    public class ActionAdapter : BaseAdapter<IAction>, IAction, IIteratable, IMouse, IPointer, ICollision, ICollision2D, ITrigger, ITrigger2D
     {
         void IAction.Action()
         {

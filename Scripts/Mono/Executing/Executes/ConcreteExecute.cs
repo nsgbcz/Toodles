@@ -1,12 +1,11 @@
-﻿using Toodles.Controllers;
-using Sirenix.OdinInspector;
+﻿using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
-using Toodles.Iterates;
+using Toodles.Actions;
 
 namespace Toodles.Executes
 {
-    public abstract class ConcreteExecute<T> : BaseExecute
+    public abstract class ConcreteExecute<T> : BaseExecute, IDrawGizmosSelected
     {
         [PropertyOrder(-10), Required]
         public T execute;
@@ -18,19 +17,13 @@ namespace Toodles.Executes
 
             ExecuteFactory.Replace(ExecuteType, this);
         }
-
-        bool IsBuilder
+#endif
+        public void OnDrawGizmosSelected()
         {
-            get
+            if (execute is IDrawGizmosSelected)
             {
-                return execute is IBuilder && execute is IIteratable;
+                (execute as IDrawGizmosSelected).OnDrawGizmosSelected();
             }
         }
-        [Button, ShowIf("IsBuilder")]
-        void Build()
-        {
-            execute = (T)(execute as IBuilder).GetAct();
-        }
-#endif
     }
 }

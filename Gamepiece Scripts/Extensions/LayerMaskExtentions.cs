@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static partial class Extentions
+namespace Game
 {
-    public static int ToLayerIndex(this LayerMask mask)
+    public static partial class Extentions
     {
-        int lay = mask.value;
-        int pow = 0;
-        while (lay > 1)
+        public static int ToLayerIndex(this LayerMask mask)
         {
-            lay = lay >> 1;
-            if (++pow > 32) break;
+            int lay = mask.value;
+            int pow = 0;
+            while (lay > 1)
+            {
+                lay = lay >> 1;
+                if (++pow > 32) break;
+            }
+            return pow;
         }
-        return pow;
     }
 }

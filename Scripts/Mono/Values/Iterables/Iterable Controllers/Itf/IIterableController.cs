@@ -1,15 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Toodles.Iterates;
+using Toodles.Actions;
 using System;
 
-namespace Toodles.Controllers
+namespace Toodles.IterableControllers
 {
     public interface IIterableController : IIteratable, IDrawGizmosSelected
     {
-        void SetAction();
-
         void Add(IIteratable act);
 
         bool IsValide { get; }

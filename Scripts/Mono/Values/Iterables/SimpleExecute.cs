@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-namespace Toodles.Iterates
+namespace Toodles.Actions
 {
     using Executes;
-    using Controllers;
+    using IterableControllers;
 
-    public class SimpleExecute : IExecute
+    public class SimpleExecute : IAction, IIteratable, IDrawGizmosSelected
     {
         [Required, SerializeField]
         IIteratable iterate = new ListIterable();
@@ -22,6 +22,14 @@ namespace Toodles.Iterates
         public virtual void Action()
         {
             iterate?.Iterate();
+        }
+
+        public void OnDrawGizmosSelected()
+        {
+            if(iterate is IDrawGizmosSelected)
+            {
+                (iterate as IDrawGizmosSelected).OnDrawGizmosSelected();
+            }
         }
     }
 }

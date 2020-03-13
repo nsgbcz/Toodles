@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Toodles.Variables
+namespace Toodles.GlobalVariables
 {
-    [CreateAssetMenu(menuName = "MyAssets/Variables/Bool")]
+    using Variables;
+    [CreateAssetMenu(menuName = "Toodles/Variables/Bool")]
     public class GlobalBool : GlobalVariable<bool> { }
 }

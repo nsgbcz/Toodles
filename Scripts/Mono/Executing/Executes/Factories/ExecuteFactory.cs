@@ -1,6 +1,6 @@
 ﻿#if UNITY_EDITOR
 using UnityEngine;
-using Toodles.Iterates;
+using Toodles.Actions;
 using System.Linq;
 using Sirenix.OdinInspector;
 using System;
@@ -9,7 +9,7 @@ using System.Reflection;
 namespace Toodles.Executes
 {
     using Adapters;
-    using Iterates;
+    using Actions;
     internal struct FactoryData : IEquatable<FactoryData>
     {
         [SerializeField]

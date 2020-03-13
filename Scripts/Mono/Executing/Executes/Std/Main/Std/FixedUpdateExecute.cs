@@ -4,11 +4,18 @@ using UnityEngine;
 
 namespace Toodles.Executes
 {
+    using Handlers;
     public class FixedUpdateExecute : Execute
     {
-        private void FixedUpdate()
+        [SerializeField]
+        int order;
+        private void OnEnable()
         {
-            base.Action();
+            FixedUpdateHandler.Subscribe(Action, order);
+        }
+        private void OnDisable()
+        {
+            FixedUpdateHandler.Unsubscribe(Action, order);
         }
     }
 }

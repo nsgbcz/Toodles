@@ -1,13 +1,13 @@
 ﻿using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Toodles.Variables
+namespace Toodles.GlobalVariables
 {
-    using Controllers;
-    using Iterates;
-    using Executes;
+    using IterableControllers;
+    using Actions;
+    using Variables;
 
-    [CreateAssetMenu(menuName = "MyAssets/Actions/GlobalAction")]
+    [CreateAssetMenu(menuName = "Toodles/Actions/GlobalAction")]
     public class GlobalAction : SerializedScriptableObject, IAction
     {
         public IAction action;

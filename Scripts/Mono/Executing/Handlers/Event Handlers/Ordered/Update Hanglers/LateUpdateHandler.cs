@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Toodles.Handlers
 {
-    public class LateHandler : IntOrderedHandler
+    public class LateUpdateHandler : IntOrderedHandler
     {
         private static IntOrderedHandler _get;
         private static IntOrderedHandler Get
@@ -20,11 +20,11 @@ namespace Toodles.Handlers
         {
             if (_get == null)
             {
-                var handlers = GameObject.FindObjectOfType<LateHandler>();
+                var handlers = GameObject.FindObjectOfType<LateUpdateHandler>();
 
                 if (!ApplicationQuitHandler.Quitting && _get == null)
                 {
-                    _get = new GameObject("EventHandler").AddComponent<LateHandler>();
+                    _get = new GameObject("EventHandler").AddComponent<LateUpdateHandler>();
                     GameObject.DontDestroyOnLoad(_get);
                 }
             }

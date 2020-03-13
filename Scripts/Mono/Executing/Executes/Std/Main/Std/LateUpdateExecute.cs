@@ -4,11 +4,18 @@ using UnityEngine;
 
 namespace Toodles.Executes
 {
+    using Handlers;
     public class LateUpdateExecute : Execute
     {
-        private void LateUpdate()
+        [SerializeField]
+        int order;
+        private void OnEnable()
         {
-            base.Action();
+            LateUpdateHandler.Subscribe(Action, order);
+        }
+        private void OnDisable()
+        {
+            LateUpdateHandler.Unsubscribe(Action, order);
         }
     }
 }

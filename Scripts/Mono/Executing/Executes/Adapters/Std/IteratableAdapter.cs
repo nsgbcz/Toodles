@@ -5,10 +5,10 @@ using Sirenix.OdinInspector;
 
 namespace Toodles.Executes.Adapters
 {
-    using Iterates;
+    using Actions;
     using UnityEngine.EventSystems;
 
-    public class IteratableAdapter : BaseAdapter<IIteratable>, IExecute, IMouse, IPointer, ICollision, ICollision2D, ITrigger, ITrigger2D
+    public class IteratableAdapter : BaseAdapter<IIteratable>, IAction, IIteratable, IMouse, IPointer, ICollision, ICollision2D, ITrigger, ITrigger2D
     {
         void IAction.Action()
         {

@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Toodles.Variables
+namespace Toodles.GlobalVariables
 {
-    [CreateAssetMenu(menuName = "MyAssets/Variables/Float")]
+    using Variables;
+    [CreateAssetMenu(menuName = "Toodles/Variables/Float")]
     public class GlobalFloat : GlobalVariable<float> { }
 }

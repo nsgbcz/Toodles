@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Toodles.Variables
+namespace Toodles.GlobalVariables
 {
-    [CreateAssetMenu(menuName = "MyAssets/Variables/Rigidbody2D")]
+    using Variables;
+    [CreateAssetMenu(menuName = "Toodles/Variables/Rigidbody2D")]
     public class GlobalRigidbody2D : GlobalVariable<Rigidbody2D> { }
 }

@@ -1,22 +1,14 @@
-﻿using Toodles.Controllers;
-using Sirenix.OdinInspector;
+﻿using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
-using Toodles.Iterates;
+using Toodles.Actions;
 
 namespace Toodles.Executes
 {
-    public class Execute : ConcreteExecute<IIteratable>, IExecute
+    public class Execute : ConcreteExecute<IIteratable>, IAction, IIteratable
     {
 #if UNITY_EDITOR
         bool ShowActionButton { get => execute != null; }
-        bool ShowBuildButton { get => execute is IBuilder; }
-        [Button, ShowIf("ShowBuildButton"), PropertyOrder(2)]
-        public virtual void Build()
-        {
-            var builder = execute as IBuilder;
-            execute = builder?.GetAct();
-        }
 #endif
 
         [Button, ShowIf("ShowActionButton"), PropertyOrder(3)]

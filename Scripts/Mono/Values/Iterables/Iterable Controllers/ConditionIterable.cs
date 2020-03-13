@@ -1,23 +1,13 @@
 ﻿using Sirenix.OdinInspector;
 using System.Collections.Generic;
-using Toodles.Iterates;
+using Toodles.Actions;
 
-namespace Toodles.Controllers
+namespace Toodles.IterableControllers
 {
     [TypeInfoBox("Returns true when all Meths have returned true. Doesn't remove Meths if they true. Doesn't stop if some Meth has returned false.")]
     public class ConditionIterable : IIteratable, IIterableController
     {
         public List<IIteratable> Meths = new List<IIteratable>();
-
-        [Button("Set Action")]
-        void IIterableController.SetAction()
-        {
-            for (int i = 0; i < Meths.Count; i++)
-            {
-                if (Meths[i] is IBuilder) Meths[i] = ((IBuilder)Meths[i]).GetAct();
-                else if (Meths[i] is IIterableController) ((IIterableController)Meths[i]).SetAction();
-            }
-        }
 
         public bool Iterate()
         {

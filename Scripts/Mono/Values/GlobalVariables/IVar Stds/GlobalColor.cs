@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Toodles.Variables
+namespace Toodles.GlobalVariables
 {
-    [CreateAssetMenu(menuName = "MyAssets/Variables/Color")]
+    using Variables;
+    [CreateAssetMenu(menuName = "Toodles/Variables/Color")]
     public class GlobalColor : GlobalVariable<Color> { }
 }

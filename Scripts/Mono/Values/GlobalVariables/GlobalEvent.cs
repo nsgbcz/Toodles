@@ -1,11 +1,11 @@
 ﻿using Sirenix.OdinInspector;
 using System;
 using UnityEngine;
-using Toodles.Iterates;
+using Toodles.Actions;
 
-namespace Toodles
+namespace Toodles.GlobalVariables
 {
-    [CreateAssetMenu(menuName = "MyAssets/Actions/GlobalEvent")]
+    [CreateAssetMenu(menuName = "Toodles/Actions/GlobalEvent")]
     public class GlobalEvent : ScriptableObject, IAction, ISigner
     {
         event Action acts;

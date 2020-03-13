@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Toodles.Iterates
+namespace Toodles.Actions
 {
     public interface IIteratable
     {

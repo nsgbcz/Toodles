@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Toodles.Variables
+namespace Toodles.GlobalVariables
 {
-    [CreateAssetMenu(menuName = "MyAssets/Variables/Transform")]
+    using Variables;
+    [CreateAssetMenu(menuName = "Toodles/Variables/Transform")]
     public class GlobalTransform : GlobalVariable<Transform> { }
 }

@@ -5,11 +5,11 @@ using Sirenix.OdinInspector;
 
 namespace Toodles.Executes.Adapters
 {
-    using Iterates;
+    using Actions;
     using Executes;
     using UnityEngine.EventSystems;
 
-    public class TriggerAdapter : BaseAdapter<ITrigger>, IExecute, IMouse, IPointer, ICollision, ICollision2D, ITrigger, ITrigger2D
+    public class Trigger2DAdapter : BaseAdapter<ITrigger2D>, IAction, IIteratable, IMouse, IPointer, ICollision, ICollision2D, ITrigger, ITrigger2D
     {
         void IAction.Action()
         {
@@ -43,12 +43,34 @@ namespace Toodles.Executes.Adapters
 
         bool ITrigger.Action(Collider coll)
         {
-            return Value.Action(coll);
+            return Value.Action(null);
         }
 
         bool ITrigger2D.Action(Collider2D coll)
         {
-            return Value.Action(null);
+            return Value.Action(coll);
+        }
+    }
+
+    public class TriggerEnter2DAdapter : BaseAdapter<ITriggerEnter2D>, ITrigger2D
+    {
+        bool ITrigger2D.Action(Collider2D coll)
+        {
+            return Value.Action(coll);
+        }
+    }
+    public class TriggerStay2DAdapter : BaseAdapter<ITriggerStay2D>, ITrigger2D
+    {
+        bool ITrigger2D.Action(Collider2D coll)
+        {
+            return Value.Action(coll);
+        }
+    }
+    public class TriggerExit2DAdapter : BaseAdapter<ITriggerExit2D>, ITrigger2D
+    {
+        bool ITrigger2D.Action(Collider2D coll)
+        {
+            return Value.Action(coll);
         }
     }
 }
