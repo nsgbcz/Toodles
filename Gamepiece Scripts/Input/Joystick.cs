@@ -2,7 +2,6 @@
 using UnityEngine;
 using Sirenix.OdinInspector;
 using Toodles.Variables;
-using Unity.Mathematics;
 using UnityEngine.EventSystems;
 
 namespace Game.Input

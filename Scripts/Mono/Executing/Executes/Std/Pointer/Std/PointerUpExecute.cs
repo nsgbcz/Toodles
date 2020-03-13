@@ -6,9 +6,14 @@ namespace Toodles.Executes
 {
     public class PointerUpExecute : PointerExecute, IPointerUpHandler, IPointerUp
     {
-        public void OnPointerUp(PointerEventData eventData)
+        public void OnPointerUp(PointerEventData data)
         {
-            Action(eventData);
+            OnPointer(data);
+        }
+
+        bool IPointerUp.OnPointerUp(PointerEventData data)
+        {
+            return OnPointer(data);
         }
     }
 }

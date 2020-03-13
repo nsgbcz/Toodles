@@ -13,64 +13,64 @@ namespace Toodles.Executes.Adapters
     {
         void IAction.Action()
         {
-            Value.Action(null); ;
+            Value.OnTrigger(null); ;
         }
 
         bool IIteratable.Iterate()
         {
-            return Value.Action(null);
+            return Value.OnTrigger(null);
         }
 
-        bool IMouse.Action()
+        bool IMouse.OnMouse()
         {
-            return Value.Action(null);
+            return Value.OnTrigger(null);
         }
 
-        bool IPointer.Action(PointerEventData data)
+        bool IPointer.OnPointer(PointerEventData data)
         {
-            return Value.Action(null);
+            return Value.OnTrigger(null);
         }
 
-        bool ICollision.Action(Collision coll)
+        bool ICollision.OnCollision(Collision coll)
         {
-            return Value.Action(null);
+            return Value.OnTrigger(null);
         }
 
-        bool ICollision2D.Action(Collision2D coll)
+        bool ICollision2D.OnCollision2D(Collision2D coll)
         {
-            return Value.Action(null);
+            return Value.OnTrigger(null);
         }
 
-        bool ITrigger.Action(Collider coll)
+        bool ITrigger.OnTrigger(Collider coll)
         {
-            return Value.Action(coll);
+            return Value.OnTrigger(coll);
         }
 
-        bool ITrigger2D.Action(Collider2D coll)
+        bool ITrigger2D.OnTrigger2D(Collider2D coll)
         {
-            return Value.Action(null);
+            return Value.OnTrigger(null);
         }
     }
 
     public class TriggerEnterAdapter : BaseAdapter<ITriggerEnter>, ITrigger
     {
-        bool ITrigger.Action(Collider coll)
+        bool ITrigger.OnTrigger(Collider coll)
         {
-            return Value.Action(coll);
+            return Value.OnTrigger(coll);
         }
     }
     public class TriggerStayAdapter : BaseAdapter<ITriggerStay>, ITrigger
     {
-        bool ITrigger.Action(Collider coll)
+        bool ITrigger.OnTrigger(Collider coll)
         {
-            return Value.Action(coll);
+            return Value.OnTrigger(coll);
         }
     }
     public class TriggerExitAdapter : BaseAdapter<ITriggerExit>, ITrigger
     {
-        bool ITrigger.Action(Collider coll)
+        bool ITrigger.OnTrigger(Collider coll)
         {
-            return Value.Action(coll);
+            return Value.OnTrigger(coll);
         }
     }
 }

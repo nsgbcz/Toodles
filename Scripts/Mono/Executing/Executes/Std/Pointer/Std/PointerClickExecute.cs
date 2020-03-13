@@ -8,7 +8,12 @@ namespace Toodles.Executes
     {
         public void OnPointerClick(PointerEventData eventData)
         {
-            Action(eventData);
+            OnPointer(eventData);
+        }
+
+        bool IPointerClick.OnPointerClick(PointerEventData data)
+        {
+            return OnPointer(data);
         }
     }
 }

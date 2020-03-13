@@ -8,7 +8,12 @@ namespace Toodles.Executes
     {
         public void OnPointerExit(PointerEventData eventData)
         {
-            Action(eventData);
+            OnPointer(eventData);
+        }
+
+        bool IPointerExit.OnPointerExit(PointerEventData data)
+        {
+            return OnPointer(data);
         }
     }
 }

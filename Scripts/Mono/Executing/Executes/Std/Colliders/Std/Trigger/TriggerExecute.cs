@@ -7,11 +7,11 @@ namespace Toodles.Executes
 {
     public class TriggerExecute : ConcretCollExecute<Collider, ITrigger>, ITrigger
     {
-        public bool Action(Collider coll)
+        public bool OnTrigger(Collider coll)
         {
             if (filter.Filter(coll))
             {
-                if (execute != null && execute.Action(coll))
+                if (execute != null && execute.OnTrigger(coll))
                 {
                     Destroy(this);
                     return true;

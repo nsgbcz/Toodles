@@ -8,7 +8,12 @@ namespace Toodles.Executes
     {
         private void OnCollisionExit2D(Collision2D coll)
         {
-            Action(coll);
+            OnCollision2D(coll);
+        }
+
+        bool ICollisionExit2D.OnCollisionExit2D(Collision2D coll)
+        {
+            return OnCollision2D(coll);
         }
     }
 }

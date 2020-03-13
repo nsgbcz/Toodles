@@ -7,7 +7,7 @@ namespace Toodles.Executes
     using Actions;
     public class MouseExecute : ConcreteExecute<IIteratable>, IMouse
     {
-        public bool Action()
+        public bool OnMouse()
         {
             if (execute != null && execute.Iterate())
             {

@@ -13,64 +13,64 @@ namespace Toodles.Executes.Adapters
     {
         void IAction.Action()
         {
-            Value.Action(null); ;
+            Value.OnCollision2D(null); ;
         }
 
         bool IIteratable.Iterate()
         {
-            return Value.Action(null);
+            return Value.OnCollision2D(null);
         }
 
-        bool IMouse.Action()
+        bool IMouse.OnMouse()
         {
-            return Value.Action(null);
+            return Value.OnCollision2D(null);
         }
 
-        bool IPointer.Action(PointerEventData data)
+        bool IPointer.OnPointer(PointerEventData data)
         {
-            return Value.Action(null);
+            return Value.OnCollision2D(null);
         }
 
-        bool ICollision.Action(Collision coll)
+        bool ICollision.OnCollision(Collision coll)
         {
-            return Value.Action(null);
+            return Value.OnCollision2D(null);
         }
 
-        bool ICollision2D.Action(Collision2D coll)
+        bool ICollision2D.OnCollision2D(Collision2D coll)
         {
-            return Value.Action(coll);
+            return Value.OnCollision2D(coll);
         }
 
-        bool ITrigger.Action(Collider coll)
+        bool ITrigger.OnTrigger(Collider coll)
         {
-            return Value.Action(null);
+            return Value.OnCollision2D(null);
         }
 
-        bool ITrigger2D.Action(Collider2D coll)
+        bool ITrigger2D.OnTrigger2D(Collider2D coll)
         {
-            return Value.Action(null);
+            return Value.OnCollision2D(null);
         }
     }
 
     public class CollisionEnter2DAdapter : BaseAdapter<ICollisionEnter2D>, ICollision2D
     {
-        bool ICollision2D.Action(Collision2D coll)
+        bool ICollision2D.OnCollision2D(Collision2D coll)
         {
-            return Value.Action(coll);
+            return Value.OnCollisionEnter2D(coll);
         }
     }
     public class CollisionStay2DAdapter : BaseAdapter<ICollisionStay2D>, ICollision2D
     {
-        bool ICollision2D.Action(Collision2D coll)
+        bool ICollision2D.OnCollision2D(Collision2D coll)
         {
-            return Value.Action(coll);
+            return Value.OnCollision2D(coll);
         }
     }
     public class CollisionExit2DAdapter : BaseAdapter<ICollisionExit2D>, ICollision2D
     {
-        bool ICollision2D.Action(Collision2D coll)
+        bool ICollision2D.OnCollision2D(Collision2D coll)
         {
-            return Value.Action(coll);
+            return Value.OnCollision2D(coll);
         }
     }
 }

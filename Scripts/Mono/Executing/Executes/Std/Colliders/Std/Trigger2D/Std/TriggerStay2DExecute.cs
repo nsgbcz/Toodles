@@ -8,7 +8,12 @@ namespace Toodles.Executes
     {
         private void OnTriggerStay2D(Collider2D coll)
         {
-            Action(coll);
+            OnTrigger2D(coll);
+        }
+
+        bool ITriggerStay2D.OnTriggerStay2D(Collider2D coll)
+        {
+            return OnTrigger2D(coll);
         }
     }
 }

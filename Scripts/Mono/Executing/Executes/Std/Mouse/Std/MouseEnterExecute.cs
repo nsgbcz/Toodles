@@ -7,7 +7,12 @@ namespace Toodles.Executes
     {
         private void OnMouseEnter()
         {
-            Action();
+            OnMouse();
+        }
+
+        bool IMouseEnter.OnMouseEnter()
+        {
+            return OnMouse();
         }
     }
 }

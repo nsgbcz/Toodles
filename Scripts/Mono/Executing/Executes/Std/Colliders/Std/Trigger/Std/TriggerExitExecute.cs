@@ -8,7 +8,12 @@ namespace Toodles.Executes
     {
         private void OnTriggerExit(Collider coll)
         {
-            Action(coll);
+            OnTrigger(coll);
+        }
+
+        bool ITriggerExit.OnTriggerExit(Collider coll)
+        {
+            return OnTrigger(coll);
         }
     }
 }

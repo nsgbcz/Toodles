@@ -7,9 +7,9 @@ namespace Toodles.Executes
 {
     public class PointerExecute : ConcreteExecute<IPointer>, IPointer
     {
-        public bool Action(PointerEventData data)
+        public bool OnPointer(PointerEventData data)
         {
-            if (execute != null && execute.Action(data))
+            if (execute != null && execute.OnPointer(data))
             {
                 Destroy(this);
                 return true;

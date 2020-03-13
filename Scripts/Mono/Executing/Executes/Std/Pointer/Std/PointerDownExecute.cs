@@ -10,7 +10,12 @@ namespace Toodles.Executes
     {
         public void OnPointerDown(PointerEventData eventData)
         {
-           Action(eventData);
+           OnPointer(eventData);
+        }
+
+        bool IPointerDown.OnPointerDown(PointerEventData data)
+        {
+            return OnPointer(data);
         }
     }
 }

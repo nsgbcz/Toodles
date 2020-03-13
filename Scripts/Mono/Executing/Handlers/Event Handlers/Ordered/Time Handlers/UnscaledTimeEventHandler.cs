@@ -19,13 +19,16 @@ namespace Toodles.Handlers
 
         static void Init()
         {
-            if (_get == null)
+            if (_get == null && !ApplicationQuitHandler.Quitting)
             {
                 _get = GameObject.FindObjectOfType<UnscaledTimeEventHandler>();
 
-                if (!ApplicationQuitHandler.Quitting && _get == null)
+                if (_get == null)
                 {
-                    _get = new GameObject("EventHandler").AddComponent<UnscaledTimeEventHandler>();
+                    var obj = GameObject.Find("EventHandler");
+                    if (obj == null) obj = new GameObject("EventHandler");
+
+                    _get = obj.AddComponent<UnscaledTimeEventHandler>();
                     DontDestroyOnLoad(_get);
                 }
             }

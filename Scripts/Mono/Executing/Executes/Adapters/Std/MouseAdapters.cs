@@ -12,91 +12,91 @@ namespace Toodles.Executes.Adapters
     {
         void IAction.Action()
         {
-            Value.Action(); ;
+            Value.OnMouse(); ;
         }
 
         bool IIteratable.Iterate()
         {
-            return Value.Action();
+            return Value.OnMouse();
         }
 
-        bool IMouse.Action()
+        bool IMouse.OnMouse()
         {
-            return Value.Action();
+            return Value.OnMouse();
         }
 
-        bool IPointer.Action(PointerEventData data)
+        bool IPointer.OnPointer(PointerEventData data)
         {
-            return Value.Action();
+            return Value.OnMouse();
         }
 
-        bool ICollision.Action(Collision coll)
+        bool ICollision.OnCollision(Collision coll)
         {
-            return Value.Action();
+            return Value.OnMouse();
         }
 
-        bool ICollision2D.Action(Collision2D coll)
+        bool ICollision2D.OnCollision2D(Collision2D coll)
         {
-            return Value.Action();
+            return Value.OnMouse();
         }
 
-        bool ITrigger.Action(Collider coll)
+        bool ITrigger.OnTrigger(Collider coll)
         {
-            return Value.Action();
+            return Value.OnMouse();
         }
 
-        bool ITrigger2D.Action(Collider2D coll)
+        bool ITrigger2D.OnTrigger2D(Collider2D coll)
         {
-            return Value.Action();
+            return Value.OnMouse();
         }
     }
     public class MouseClickAdapter : BaseAdapter<IMouseUpAsButton>, IMouse
     {
-        bool IMouse.Action()
+        bool IMouse.OnMouse()
         {
-            return Value.Action();
+            return Value.OnMouseClick();
         }
     }
     public class MouseDownAdapter : BaseAdapter<IMouseDown>, IMouse
     {
-        bool IMouse.Action()
+        bool IMouse.OnMouse()
         {
-            return Value.Action();
+            return Value.OnMouseDown();
         }
     }
     public class MouseDragAdapter : BaseAdapter<IMouseDrag>, IMouse
     {
-        bool IMouse.Action()
+        bool IMouse.OnMouse()
         {
-            return Value.Action();
+            return Value.OnMouseDrag();
         }
     }
     public class MouseEnterAdapter : BaseAdapter<IMouseEnter>, IMouse
     {
-        bool IMouse.Action()
+        bool IMouse.OnMouse()
         {
-            return Value.Action();
+            return Value.OnMouseEnter();
         }
     }
     public class MouseExitAdapter : BaseAdapter<IMouseExit>, IMouse
     {
-        bool IMouse.Action()
+        bool IMouse.OnMouse()
         {
-            return Value.Action();
+            return Value.OnMouseExit();
         }
     }
     public class MouseOverAdapter : BaseAdapter<IMouseOver>, IMouse
     {
-        bool IMouse.Action()
+        bool IMouse.OnMouse()
         {
-            return Value.Action();
+            return Value.OnMouseOver();
         }
     }
     public class MouseUpAdapter : BaseAdapter<IMouseUp>, IMouse
     {
-        bool IMouse.Action()
+        bool IMouse.OnMouse()
         {
-            return Value.Action();
+            return Value.OnMouseUp();
         }
     }
 }

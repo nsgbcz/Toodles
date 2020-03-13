@@ -8,11 +8,11 @@ namespace Toodles.Executes
 {
     public class Collision2DExecute : ConcretCollExecute<Collision2D, ICollision2D>, ICollision2D
     {
-        public bool Action(Collision2D coll)
+        public bool OnCollision2D(Collision2D coll)
         {
             if (filter.Filter(coll))
             {
-                if (execute != null && execute.Action(coll))
+                if (execute != null && execute.OnCollision2D(coll))
                 {
                     Destroy(this);
                     return true;

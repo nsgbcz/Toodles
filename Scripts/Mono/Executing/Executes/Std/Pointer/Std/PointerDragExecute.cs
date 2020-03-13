@@ -8,7 +8,12 @@ namespace Toodles.Executes
     {
         public void OnDrag(PointerEventData eventData)
         {
-            Action(eventData);
+            OnPointer(eventData);
+        }
+
+        public bool OnPointerDrag(PointerEventData data)
+        {
+            return OnPointer(data);
         }
     }
 }

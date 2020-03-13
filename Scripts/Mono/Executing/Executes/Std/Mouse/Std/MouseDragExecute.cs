@@ -7,7 +7,12 @@ namespace Toodles.Executes
     {
         private void OnMouseDrag()
         {
-            Action();
+            OnMouse();
+        }
+
+        bool IMouseDrag.OnMouseDrag()
+        {
+            return OnMouse();
         }
     }
 }

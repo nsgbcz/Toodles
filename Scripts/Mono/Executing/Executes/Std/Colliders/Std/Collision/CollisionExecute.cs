@@ -7,11 +7,11 @@ namespace Toodles.Executes
 {
     public class CollisionExecute : ConcretCollExecute<Collision, ICollision>, ICollision
     {
-        public bool Action(Collision coll)
+        public bool OnCollision(Collision coll)
         {
             if (filter.Filter(coll))
             {
-                if (execute != null && execute.Action(coll))
+                if (execute != null && execute.OnCollision(coll))
                 {
                     Destroy(this);
                     return true;

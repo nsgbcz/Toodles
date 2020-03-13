@@ -16,13 +16,16 @@ namespace Toodles.Handlers
         }
         static void Init()
         {
-            if (_get == null)
+            if (_get == null && !ApplicationQuitHandler.Quitting)
             {
                 _get = GameObject.FindObjectOfType<CourutineEventHandler>();
 
-                if (!ApplicationQuitHandler.Quitting && _get == null)
+                if (_get == null)
                 {
-                    _get = new GameObject("EventHandler").AddComponent<CourutineEventHandler>();
+                    var obj = GameObject.Find("EventHandler");
+                    if (obj == null) obj = new GameObject("EventHandler");
+
+                    _get = obj.AddComponent<CourutineEventHandler>();
                     DontDestroyOnLoad(_get);
                 }
             }

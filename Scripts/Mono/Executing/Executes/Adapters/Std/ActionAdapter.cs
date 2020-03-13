@@ -20,40 +20,97 @@ namespace Toodles.Executes.Adapters
             return true;
         }
 
-        bool IMouse.Action()
+        bool IMouse.OnMouse()
         {
             Value.Action();
             return true;
         }
 
-        bool IPointer.Action(PointerEventData data)
+        bool IPointer.OnPointer(PointerEventData data)
         {
             Value.Action();
             return true;
         }
 
-        bool ICollision.Action(Collision coll)
+        bool ICollision.OnCollision(Collision coll)
         {
             Value.Action();
             return true;
         }
 
-        bool ICollision2D.Action(Collision2D coll)
+        bool ICollision2D.OnCollision2D(Collision2D coll)
         {
             Value.Action();
             return true;
         }
 
-        bool ITrigger.Action(Collider coll)
+        bool ITrigger.OnTrigger(Collider coll)
         {
             Value.Action();
             return true;
         }
 
-        bool ITrigger2D.Action(Collider2D coll)
+        bool ITrigger2D.OnTrigger2D(Collider2D coll)
         {
             Value.Action();
             return true;
+        }
+    }
+
+    public class AwakeAdapter : BaseAdapter<IAwake>, IAction
+    {
+        void IAction.Action()
+        {
+            Value.OnAwake();
+        }
+    }
+    public class StartAdapter : BaseAdapter<IStart>, IAction
+    {
+        void IAction.Action()
+        {
+            Value.OnStart();
+        }
+    }
+    public class EnableAdapter : BaseAdapter<IEnable>, IAction
+    {
+        void IAction.Action()
+        {
+            Value.OnEnable();
+        }
+    }
+    public class UpdateAdapter : BaseAdapter<IUpdate>, IAction
+    {
+        void IAction.Action()
+        {
+            Value.OnUpdate();
+        }
+    }
+    public class FixedUpdateAdapter : BaseAdapter<IFixedUpdate>, IAction
+    {
+        void IAction.Action()
+        {
+            Value.OnFixedUpdate();
+        }
+    }
+    public class LateUpdateAdapter : BaseAdapter<ILateUpdate>, IAction
+    {
+        void IAction.Action()
+        {
+            Value.OnLateUpdate();
+        }
+    }
+    public class DisableAdapter : BaseAdapter<IDisable>, IAction
+    {
+        void IAction.Action()
+        {
+            Value.OnDisable();
+        }
+    }
+    public class DestroyAdapter : BaseAdapter<IDestroy>, IAction
+    {
+        void IAction.Action()
+        {
+            Value.OnDestroy();
         }
     }
 }

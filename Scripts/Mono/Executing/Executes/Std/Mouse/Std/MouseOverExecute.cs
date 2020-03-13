@@ -7,7 +7,12 @@ namespace Toodles.Executes
     {
         private void OnMouseOver()
         {
-            Action();
+            OnMouse();
+        }
+
+        bool IMouseOver.OnMouseOver()
+        {
+            return OnMouse();
         }
     }
 }

@@ -7,7 +7,12 @@ namespace Toodles.Executes
     {
         private void OnMouseUpAsButton()
         {
-            Action();
+            OnMouse();
         }
+        public bool OnMouseClick()
+        {
+            return OnMouse();
+        }
+
     }
 }

@@ -7,7 +7,12 @@ namespace Toodles.Executes
     {
         private void OnMouseDown()
         {
-            Action();
+            OnMouse();
+        }
+
+        bool IMouseDown.OnMouseDown()
+        {
+            return OnMouse();
         }
     }
 }

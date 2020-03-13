@@ -20,13 +20,16 @@ namespace Toodles.Handlers
         [RuntimeInitializeOnLoadMethod]
         static void Init()
         {
-            if (_get == null)
+            if (_get == null && !Quitting)
             {
                 _get = GameObject.FindObjectOfType<ApplicationQuitHandler>();
 
-                if (!Quitting && _get == null)
+                if (_get == null)
                 {
-                    _get = new GameObject("EventHandler").AddComponent<ApplicationQuitHandler>();
+                    var obj = GameObject.Find("EventHandler");
+                    if (obj == null) obj = new GameObject("EventHandler");
+
+                    _get = obj.AddComponent<ApplicationQuitHandler>();
                     DontDestroyOnLoad(_get);
                 }
             }

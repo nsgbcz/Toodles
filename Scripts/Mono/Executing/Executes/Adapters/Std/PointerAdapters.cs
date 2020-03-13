@@ -13,84 +13,84 @@ namespace Toodles.Executes.Adapters
     {
         void IAction.Action()
         {
-            Value.Action(null); ;
+            Value.OnPointer(null); ;
         }
 
         bool IIteratable.Iterate()
         {
-            return Value.Action(null);
+            return Value.OnPointer(null);
         }
 
-        bool IMouse.Action()
+        bool IMouse.OnMouse()
         {
-            return Value.Action(null);
+            return Value.OnPointer(null);
         }
 
-        bool IPointer.Action(PointerEventData data)
+        bool IPointer.OnPointer(PointerEventData data)
         {
-            return Value.Action(data);
+            return Value.OnPointer(data);
         }
 
-        bool ICollision.Action(Collision coll)
+        bool ICollision.OnCollision(Collision coll)
         {
-            return Value.Action(null);
+            return Value.OnPointer(null);
         }
 
-        bool ICollision2D.Action(Collision2D coll)
+        bool ICollision2D.OnCollision2D(Collision2D coll)
         {
-            return Value.Action(null);
+            return Value.OnPointer(null);
         }
 
-        bool ITrigger.Action(Collider coll)
+        bool ITrigger.OnTrigger(Collider coll)
         {
-            return Value.Action(null);
+            return Value.OnPointer(null);
         }
 
-        bool ITrigger2D.Action(Collider2D coll)
+        bool ITrigger2D.OnTrigger2D(Collider2D coll)
         {
-            return Value.Action(null);
+            return Value.OnPointer(null);
         }
     }
     public class PointerClickAdapter : BaseAdapter<IPointerClick>, IPointer
     {
-        bool IPointer.Action(PointerEventData data)
+        bool IPointer.OnPointer(PointerEventData data)
         {
-            return Value.Action(data);
+            return Value.OnPointerClick(data);
         }
     }
     public class PointerDownAdapter : BaseAdapter<IPointerDown>, IPointer
     {
-        bool IPointer.Action(PointerEventData data)
+        bool IPointer.OnPointer(PointerEventData data)
         {
-            return Value.Action(data);
+            return Value.OnPointerDown(data);
         }
     }
     public class PointerDragAdapter : BaseAdapter<IPointerDrag>, IPointer
     {
-        bool IPointer.Action(PointerEventData data)
+        bool IPointer.OnPointer(PointerEventData data)
         {
-            return Value.Action(data);
+            return Value.OnPointerDrag(data);
         }
     }
     public class PointerEnterAdapter : BaseAdapter<IPointerEnter>, IPointer
     {
-        bool IPointer.Action(PointerEventData data)
+        bool IPointer.OnPointer(PointerEventData data)
         {
-            return Value.Action(data);
+            return Value.OnPointerEnter(data);
         }
     }
     public class PointerExitAdapter : BaseAdapter<IPointerExit>, IPointer
     {
-        bool IPointer.Action(PointerEventData data)
+        bool IPointer.OnPointer(PointerEventData data)
         {
-            return Value.Action(data);
+            return Value.OnPointerExit(data);
         }
     }
     public class PointerUpAdapter : BaseAdapter<IPointerUp>, IPointer
     {
-        bool IPointer.Action(PointerEventData data)
+        bool IPointer.OnPointer(PointerEventData data)
         {
-            return Value.Action(data);
+            return Value.OnPointerUp(data);
         }
     }
 }

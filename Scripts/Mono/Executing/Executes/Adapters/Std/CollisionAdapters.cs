@@ -13,64 +13,64 @@ namespace Toodles.Executes.Adapters
     {
         void IAction.Action()
         {
-            Value.Action(null); ;
+            Value.OnCollision(null); ;
         }
 
         bool IIteratable.Iterate()
         {
-            return Value.Action(null);
+            return Value.OnCollision(null);
         }
 
-        bool IMouse.Action()
+        bool IMouse.OnMouse()
         {
-            return Value.Action(null);
+            return Value.OnCollision(null);
         }
 
-        bool IPointer.Action(PointerEventData data)
+        bool IPointer.OnPointer(PointerEventData data)
         {
-            return Value.Action(null);
+            return Value.OnCollision(null);
         }
 
-        bool ICollision.Action(Collision coll)
+        bool ICollision.OnCollision(Collision coll)
         {
-            return Value.Action(coll);
+            return Value.OnCollision(coll);
         }
 
-        bool ICollision2D.Action(Collision2D coll)
+        bool ICollision2D.OnCollision2D(Collision2D coll)
         {
-            return Value.Action(null);
+            return Value.OnCollision(null);
         }
 
-        bool ITrigger.Action(Collider coll)
+        bool ITrigger.OnTrigger(Collider coll)
         {
-            return Value.Action(null);
+            return Value.OnCollision(null);
         }
 
-        bool ITrigger2D.Action(Collider2D coll)
+        bool ITrigger2D.OnTrigger2D(Collider2D coll)
         {
-            return Value.Action(null);
+            return Value.OnCollision(null);
         }
     }
 
     public class CollisionEnterAdapter : BaseAdapter<ICollisionEnter>, ICollision
     {
-        bool ICollision.Action(Collision coll)
+        bool ICollision.OnCollision(Collision coll)
         {
-            return Value.Action(coll);
+            return Value.OnCollisionEnter(coll);
         }
     }
     public class CollisionStayAdapter : BaseAdapter<ICollisionStay>, ICollision
     {
-        bool ICollision.Action(Collision coll)
+        bool ICollision.OnCollision(Collision coll)
         {
-            return Value.Action(coll);
+            return Value.OnCollision(coll);
         }
     }
     public class CollisionExitAdapter : BaseAdapter<ICollisionExit>, ICollision
     {
-        bool ICollision.Action(Collision coll)
+        bool ICollision.OnCollision(Collision coll)
         {
-            return Value.Action(coll);
+            return Value.OnCollision(coll);
         }
     }
 }

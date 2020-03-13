@@ -7,13 +7,34 @@ namespace Toodles.Executes
 {
     public interface IMouse
     {
-        bool Action();
+        bool OnMouse();
     }
-    public interface IMouseUpAsButton : IMouse { }
-    public interface IMouseDown : IMouse { }
-    public interface IMouseDrag : IMouse { }
-    public interface IMouseEnter : IMouse { }
-    public interface IMouseExit : IMouse { }
-    public interface IMouseOver : IMouse { }
-    public interface IMouseUp : IMouse { }
+    public interface IMouseUpAsButton
+    {
+        bool OnMouseClick();
+    }
+    public interface IMouseDown
+    {
+        bool OnMouseDown();
+    }
+    public interface IMouseDrag
+    {
+        bool OnMouseDrag();
+    }
+    public interface IMouseEnter
+    {
+        bool OnMouseEnter();
+    }
+    public interface IMouseExit
+    {
+        bool OnMouseExit();
+    }
+    public interface IMouseOver
+    {
+        bool OnMouseOver();
+    }
+    public interface IMouseUp
+    {
+        bool OnMouseUp();
+    }
 }

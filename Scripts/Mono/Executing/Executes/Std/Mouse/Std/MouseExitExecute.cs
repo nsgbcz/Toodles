@@ -7,7 +7,12 @@ namespace Toodles.Executes
     {
         private void OnMouseExit()
         {
-            Action();
+            OnMouse();
+        }
+
+        bool IMouseExit.OnMouseExit()
+        {
+            return OnMouse();
         }
     }
 }

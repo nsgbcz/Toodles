@@ -7,30 +7,30 @@ namespace Toodles.Executes
 {
     public interface IPointer
     {
-        bool Action(PointerEventData data);
+        bool OnPointer(PointerEventData data);
     }
     public interface IPointerClick 
     {
-        bool Action(PointerEventData data);
+        bool OnPointerClick(PointerEventData data);
     }
     public interface IPointerDown 
     {
-        bool Action(PointerEventData data);
+        bool OnPointerDown(PointerEventData data);
     }
     public interface IPointerDrag 
     {
-        bool Action(PointerEventData data);
+        bool OnPointerDrag(PointerEventData data);
     }
     public interface IPointerEnter 
     {
-        bool Action(PointerEventData data);
+        bool OnPointerEnter(PointerEventData data);
     }
     public interface IPointerExit 
     {
-        bool Action(PointerEventData data);
+        bool OnPointerExit(PointerEventData data);
     }
     public interface IPointerUp 
     {
-        bool Action(PointerEventData data);
+        bool OnPointerUp(PointerEventData data);
     }
 }
