@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Linq;
 using Sirenix.OdinInspector;
 
-namespace Toodles.Executes 
+namespace Toodles.Mono 
 {
     public class Collision2DExecute : ConcretCollExecute<Collision2D, ICollision2D>, ICollision2D
     {

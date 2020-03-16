@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Toodles.Executes
+namespace Toodles.Mono
 {
     public class PointerEnterExecute : PointerExecute, IPointerEnterHandler, IPointerEnter
     {

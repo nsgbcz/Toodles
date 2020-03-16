@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Toodles.Executes
+namespace Toodles.Mono
 {
     public class MouseDragExecute : MouseExecute, IMouseDrag
     {

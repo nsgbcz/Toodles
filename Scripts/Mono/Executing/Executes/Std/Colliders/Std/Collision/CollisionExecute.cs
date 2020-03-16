@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-namespace Toodles.Executes 
+namespace Toodles.Mono 
 {
     public class CollisionExecute : ConcretCollExecute<Collision, ICollision>, ICollision
     {

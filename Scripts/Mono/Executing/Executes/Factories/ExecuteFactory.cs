@@ -1,15 +1,20 @@
 ﻿#if UNITY_EDITOR
 using UnityEngine;
-using Toodles.Actions;
 using System.Linq;
 using Sirenix.OdinInspector;
 using System;
 using System.Reflection;
 
-namespace Toodles.Executes
+namespace Toodles.Mono
 {
-    using Adapters;
-    using Actions;
+    using Core.Adapters;
+    using Core.Adapters.Iterable;
+    using Core.Adapters.Pointers;
+    using Core.Adapters.Collisions;
+    using Core.Adapters.Collisions2D;
+    using Core.Adapters.Triggers;
+    using Core.Adapters.Triggers2D;
+
     internal struct FactoryData : IEquatable<FactoryData>
     {
         [SerializeField]

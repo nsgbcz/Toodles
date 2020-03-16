@@ -2,9 +2,8 @@
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-namespace Toodles.Executes
+namespace Toodles.Mono
 {
-    using Actions;
     public class MouseExecute : ConcreteExecute<IIteratable>, IMouse
     {
         public bool OnMouse()

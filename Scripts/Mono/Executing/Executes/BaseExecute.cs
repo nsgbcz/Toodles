@@ -1,9 +1,8 @@
 ﻿using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
-using Toodles.Actions;
 
-namespace Toodles.Executes
+namespace Toodles.Mono
 {
     public abstract class BaseExecute : SerializedMonoBehaviour
     {

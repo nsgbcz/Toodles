@@ -3,7 +3,7 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 using UnityEngine.EventSystems;
 
-namespace Toodles.Executes
+namespace Toodles.Mono
 {
     public class PointerExecute : ConcreteExecute<IPointer>, IPointer
     {
