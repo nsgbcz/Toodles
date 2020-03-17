@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Toodles
 {
-    public class IfElseIteratable : IIteratable, IIterableController
+    public class IfElseIteratable : IIterableController
     {
         public IIteratable If, Then, Else;
         public bool Iterate()

@@ -7,15 +7,17 @@ namespace Toodles.Ecs
 {
     public class TranslationSystem : IEcsRunSystem
     {
-        EcsFilter<TransformData, TranslationData> _filter;
+        EcsFilter<TransformComponent, TranslationComponent> _filter;
         public void Run()
         {
             foreach (var i in _filter)
             {
-                var transform = _filter.Get1[i].Value;
-                var translation = _filter.Get2[i].Value;
+                var transform = _filter.Get1[i].Data;
+                var translation = _filter.Get2[i].Data;
 
                 transform.Translate(translation, Space.World);
+
+                _filter.Get2[i].Data = Vector3.zero;
             }
         }
     }

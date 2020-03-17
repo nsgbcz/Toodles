@@ -13,7 +13,6 @@ namespace Toodles.Core.Adapters.Actions
 
         protected virtual bool Action()
         {
-            //Value.Action();
             return iterateOnce;
         }
 

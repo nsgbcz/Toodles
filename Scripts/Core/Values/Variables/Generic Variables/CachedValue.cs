@@ -8,7 +8,7 @@ namespace Toodles
     {
         [SerializeField, Required, HideLabel]
         IVar<T> value;
-
+        [SerializeField, ReadOnly]
         IVar<T> cache;
         public T Value
         {

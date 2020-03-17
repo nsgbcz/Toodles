@@ -4,12 +4,14 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 using Leopotam.Ecs;
 
-namespace Toodles.Ecs
+namespace Toodles.Ecs.Creators
 {
     public class EcsSystemsHandler : IInit, IRun
     {
-        public IGet<EcsWorld> World;
-        public IEcsSystem[] Systems;
+        [SerializeField, Required, AssetSelector]
+        IGet<EcsWorld> World;
+        [SerializeField]
+        IEcsSystem[] Systems = new IEcsSystem[0];
 
         EcsSystems _systems;
         public void Init()

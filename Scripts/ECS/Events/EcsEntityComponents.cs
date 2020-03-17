@@ -2,12 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 namespace Toodles.Ecs.Creators
 {
-    public class EcsEntityDresser : IEcsComponent
+    public class EcsEntityComponents : IEcsComponent
     {
-        public IEcsComponent[] Components;
+        [SerializeField]
+        IEcsComponent[] Components = new IEcsComponent[0];
 
         public void DressEntity(EcsEntity entity)
         {
