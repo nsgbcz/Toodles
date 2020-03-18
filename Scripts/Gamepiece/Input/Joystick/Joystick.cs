@@ -18,11 +18,11 @@ namespace Toodles.Gamepiece.Input.Joystick
             return data[i];
         }
         [SerializeField, Required]
-        IGet<int> Index = new Value<int>();
+        IGet<int> Index = new Val<int>();
         [SerializeField, Required]
         Visual Visual = new Visual();
         [SerializeField, Required]
-        IGet<float> HandleRange = new Value<float>();
+        IGet<float> HandleRange = new Val<float>();
 
         [SerializeField, BoxGroup("Behaviour"), Required]
         IStartSetting[] StartSettings = new IStartSetting[0];

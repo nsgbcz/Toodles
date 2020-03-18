@@ -8,7 +8,7 @@ namespace Toodles.Gamepiece.Input.Joystick
     using Ecs;
     public class JoystickСontrolledPreview : BaseComponent<JoystickСontrolledComponent>
     {
-        public IGet<int> joystickIndex = new Value<int>();
+        public IGet<int> joystickIndex = new Val<int>();
         protected override void SetValue(JoystickСontrolledComponent component)
         {
             component.joystickIndex = joystickIndex.Value;

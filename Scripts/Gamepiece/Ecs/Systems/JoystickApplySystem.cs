@@ -9,16 +9,17 @@ namespace Toodles.Gamepiece.Input.Joystick
 
     public class JoystickApplySystem : IEcsRunSystem
     {
-        EcsFilter<TranslationComponent, JoystickСontrolledComponent> _filter;
+        EcsFilter<JoystickСontrolledComponent, Val<IJoystickReciever>> _filter;
         public void Run()
         {
             foreach (var i in _filter)
             {
-                var translation = _filter.Get1[i];
-                var index = _filter.Get2[i].joystickIndex;
+                Debug.Log(i);
+                var index = _filter.Get1[i].joystickIndex;
+                var reciever = _filter.Get2[i].Value;
 
                 var value = Joystick.GetData(index);
-                translation.Data += new Vector3(value.x, 0, value.y);
+                reciever.Apply(value);
             }
         }
     }

@@ -10,7 +10,7 @@ namespace Toodles.Ecs.Creators
     {
         [AssetSelector, SerializeField]
         IGet<EcsEntity> Entity;
-        [SerializeField, HideLabel]
+        [SerializeField]
         IEcsComponent[] Components = new IEcsComponent[0];
 
         public void Action()

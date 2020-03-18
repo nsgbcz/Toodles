@@ -24,7 +24,7 @@ namespace Toodles
         {
             if (cache != null) return;
 
-            cache = new Value<T>(value.Value);
+            cache = new Val<T>(value.Value);
             ApplicationQuitHandler.Subscribe(Reset);
         }
 

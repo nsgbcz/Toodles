@@ -14,7 +14,7 @@ namespace Toodles
             {
                 values.Remove(key);
             }
-            values.Add(key, new Value<IContent>(value));
+            values.Add(key, new Val<IContent>(value));
         }
 
         public bool TryGetValue<T>(string key, out T value) where T : IContent

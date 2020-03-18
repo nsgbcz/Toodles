@@ -9,7 +9,7 @@ namespace Toodles.Gamepiece.Input
 
     public class WASDApplySystem : IEcsRunSystem
     {
-        EcsFilter<TranslationComponent, WASDСontrolledComponent> _filter;
+        EcsFilter<WASDСontrolledComponent, IWASDReciever> _filter;
         public void Run()
         {
             Vector3 value = Vector3.zero;
@@ -22,9 +22,9 @@ namespace Toodles.Gamepiece.Input
             if (value == Vector3.zero) return;
             foreach (var i in _filter)
             {
-                var translation = _filter.Get1[i];
+                var reciever = _filter.Get2[i];
 
-                translation.Data += value;
+                reciever.Apply(value);
             }
         }
     }

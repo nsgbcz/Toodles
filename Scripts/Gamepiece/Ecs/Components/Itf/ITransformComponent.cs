@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 namespace Toodles.Gamepiece
 {
-    using Ecs;
-    public class TransformComponent : ConcreteComponent<Transform, TransformComponent>
+    public interface ITransformComponent
     {
-
+        Transform Transform { get; set; }
     }
 }

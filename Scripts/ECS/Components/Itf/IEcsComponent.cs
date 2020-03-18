@@ -10,5 +10,6 @@ namespace Toodles.Ecs
     public interface IEcsComponent
     {
         void DressEntity(EcsEntity entity);
+
     }
 }
