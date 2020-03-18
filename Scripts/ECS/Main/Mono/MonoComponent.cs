@@ -1,16 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Leopotam.Ecs;
 using Sirenix.OdinInspector;
+using Leopotam.Ecs;
 
-namespace Toodles.Ecs
+namespace Toodles.Ecs.Creators
 {
-    [CreateAssetMenu(menuName = "Toodles/EcsVariables/EcsEntityDresser")]
-    public class ScriptableEcsEntityDresser : SerializedScriptableObject, IEcsComponent
+    public class MonoComponent : SerializedMonoBehaviour, IEcsComponent
     {
-        [SerializeField, Required]
+        [SerializeField]
         IEcsComponent[] Components = new IEcsComponent[0];
+
+        public IEcsComponent Value { get => this; set => throw new System.NotImplementedException(); }
         public void DressEntity(EcsEntity entity)
         {
             for (int i = 0; i < Components.Length; i++)

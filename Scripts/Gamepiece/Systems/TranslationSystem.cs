@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Leopotam.Ecs;
 
-namespace Toodles.Ecs
+namespace Toodles.Gamepiece
 {
+    using Ecs;
     public class TranslationSystem : IEcsRunSystem
     {
         EcsFilter<TransformComponent, TranslationComponent> _filter;

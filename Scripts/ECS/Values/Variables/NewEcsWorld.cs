@@ -10,10 +10,7 @@ namespace Toodles.Ecs
         public EcsWorld Value
         {
             get => new EcsWorld();
-            set
-            {
-
-            }
+            set { }
         }
     } 
 }

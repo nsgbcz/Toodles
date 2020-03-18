@@ -6,10 +6,20 @@ using Sirenix.OdinInspector;
 
 namespace Toodles.Ecs.Creators
 {
-    public class EcsEntityComponents : IEcsComponent
+    public class EcsEntityCreator : IAction, IVar<EcsEntityCreator>
     {
-        [SerializeField]
+        [AssetSelector, SerializeField]
+        IGet<EcsEntity> Entity;
+        [SerializeField, HideLabel]
         IEcsComponent[] Components = new IEcsComponent[0];
+
+        public EcsEntityCreator Value { get => this; set => throw new System.NotImplementedException(); }
+
+        public void Action()
+        {
+            var entity = Entity.Value;
+            DressEntity(entity);
+        }
 
         public void DressEntity(EcsEntity entity)
         {

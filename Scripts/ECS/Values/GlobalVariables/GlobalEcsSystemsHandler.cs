@@ -6,7 +6,7 @@ using Leopotam.Ecs;
 namespace Toodles.Ecs.Creators
 {
     [CreateAssetMenu(menuName = "Toodles/EcsGlobalVariables/EcsSystemsHandler")]
-    public class GlobalEcsSystemsHandler : GlobalVariable<EcsSystemsHandler>, IInit, IRun
+    public class GlobalEcsSystemsHandler : GlobalVariable<EcsSystemsRegistrator>, IInit, IRun
     {
         public void Init()
         {

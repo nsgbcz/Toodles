@@ -14,15 +14,12 @@ namespace Toodles.Ecs
         EcsWorld _world;
         public EcsEntity Value
         {
-            set
-            {
-
-            }
             get
             {
                 Init();
                 return _world.NewEntity();
             }
+            set { }
         }
 
         void Init()

@@ -6,7 +6,7 @@ using Leopotam.Ecs;
 
 namespace Toodles.Ecs.Creators
 {
-    public class EcsSystemsHandler : IInit, IRun
+    public class MonoEcsSystemsRegistrator : IInit, IRun
     {
         [SerializeField, Required, AssetSelector]
         IGet<EcsWorld> World;
@@ -14,6 +14,7 @@ namespace Toodles.Ecs.Creators
         IEcsSystem[] Systems = new IEcsSystem[0];
 
         EcsSystems _systems;
+
         public void Init()
         {
             _systems = new EcsSystems(World.Value);

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-namespace Toodles.Gamepiece.Input
+namespace Toodles.Gamepiece.Input.Joystick
 {
     using Ecs;
     public class JoystickСontrolledPreview : BaseComponent<JoystickСontrolledComponent>

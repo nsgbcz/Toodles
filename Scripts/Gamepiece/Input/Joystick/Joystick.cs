@@ -4,7 +4,7 @@ using Sirenix.OdinInspector;
 using UnityEngine.EventSystems;
 using System.Collections;
 
-namespace Toodles.Gamepiece.Input
+namespace Toodles.Gamepiece.Input.Joystick
 {
     using Camera;
 
@@ -17,82 +17,68 @@ namespace Toodles.Gamepiece.Input
         {
             return data[i];
         }
-
-        [BoxGroup("System data"), SerializeField, Required]
+        [SerializeField, Required]
         IGet<int> Index = new Value<int>();
+        [SerializeField, Required]
+        Visual Visual = new Visual();
+        [SerializeField, Required]
+        IGet<float> HandleRange = new Value<float>();
 
-        [BoxGroup("Joystick Settings"), SerializeField]
-        JoystickType Type;
-        [BoxGroup("Joystick Settings"), SerializeField]
-        bool ResetPositionWhenUp;
+        [SerializeField, BoxGroup("Behaviour"), Required]
+        IStartSetting[] StartSettings = new IStartSetting[0];
+        [SerializeField, BoxGroup("Behaviour"), Required]
+        IHandleBegin[]  HandleBegin = new IHandleBegin[0];
+        [SerializeField, BoxGroup("Behaviour"), Required]
+        IHandleInput[]  HandleInput = new IHandleInput[0];
+        [SerializeField, BoxGroup("Behaviour"), Required]
+        IHandleOutput[] HandleOutput = new IHandleOutput[0];
+        [SerializeField, BoxGroup("Behaviour"), Required]
+        IHandleEnd[]    HandleEnd= new IHandleEnd[0];
 
-        [SerializeField, Required] RectTransform Background;
-        [SerializeField, Required] RectTransform Handle;
-        [SerializeField, Required] float HandleRange;
+
+        InternalSettings internalSettings;
 
         int pointerId;
         bool pressed;
 
-        Vector2 _input;
-
-        Vector2 _startPos;
-        Vector2 _radius;
-        int _index;
-        RectTransform _baseRect;
-        Canvas _canvas;
-        UnityEngine.Camera _camera = null;
-
         void SetData(Vector2 value)
         {
-            data[_index] = value;
+            data[internalSettings.index] = value;
         }
 
         void Start()
         {
-            _baseRect = GetComponent<RectTransform>();
-            _canvas = GetComponentInParent<Canvas>();
-            if (_canvas == null)
+            internalSettings.canvas = GetComponentInParent<Canvas>();
+            if (internalSettings.canvas == null)
                 Debug.LogError("The Joystick is not placed inside a canvas");
-            if (_canvas.renderMode == RenderMode.ScreenSpaceCamera)
-                _camera = GameCamera.Get;
+            if (internalSettings.canvas.renderMode == RenderMode.ScreenSpaceCamera)
+                internalSettings.camera = GameCamera.Get;
 
-            Vector2 center = new Vector2(0.5f, 0.5f);
 
-            var midAnch = Vector2.zero;
-            var anch = Background.anchorMin;
-            midAnch.x = (anch.x + anch.y) / 2f;
-            anch = Background.anchorMax;
-            midAnch.y = (anch.x + anch.y) / 2f;
-            anch = center - anch;
-            
-            Background.anchorMin = center;
-            Background.anchorMax = center;
-            Background.pivot = center;
-            _startPos = Background.anchoredPosition -= anch * _baseRect.rect.size;
+            internalSettings.index = Index.Value;
+            internalSettings.handleRange = HandleRange.Value;
 
-            Handle.anchorMin = center;
-            Handle.anchorMax = center;
-            Handle.pivot = center;
-            Handle.anchoredPosition = Vector2.zero;
+            for (int i = 0; i < StartSettings.Length; i++)
+            {
+                StartSettings[i].Set(Visual, ref internalSettings);
+            }
 
-            _radius = Background.sizeDelta / 2;
-            _index = Index.Value;
-            if(!data.ContainsKey(_index)) data.Add(_index, Vector2.zero);
+            internalSettings.radius = Visual.Background.sizeDelta / 2;
 
-            if(Type == JoystickType.Static || ResetPositionWhenUp)
-                Background.gameObject.SetActive(true);
+            if (!data.ContainsKey(internalSettings.index)) data.Add(internalSettings.index, Vector2.zero);
         }
         
         public void OnPointerDown(PointerEventData eventData)
         {
             if (pressed) return;
 
-            if (Type != JoystickType.Static)
+            var pos = eventData.position;
+
+            for (int i = 0; i < HandleBegin.Length; i++)
             {
-                Background.anchoredPosition = ScreenPointToAnchoredPosition(eventData.position);
+                HandleBegin[i].Handle(Visual, internalSettings, pos);
             }
 
-            Background.gameObject.SetActive(true);
             pressed = true;
             pointerId = eventData.pointerId;
             OnDrag(eventData);
@@ -102,52 +88,38 @@ namespace Toodles.Gamepiece.Input
         {
             if (pointerId != eventData.pointerId) return;
 
-            Vector2 position = RectTransformUtility.WorldToScreenPoint(_camera, Background.position);
+            Vector2 position = RectTransformUtility.WorldToScreenPoint(internalSettings.camera, Visual.Background.position);
             
-            _input = (eventData.position - position) / (_radius * _canvas.scaleFactor);
+            var input = (eventData.position - position) / (internalSettings.radius * internalSettings.canvas.scaleFactor);
 
-            HandleInput(_input.magnitude, _input.normalized, _radius);
+            var meta = new InputMeta(input);
+            for (int i = 0; i < HandleInput.Length; i++)
+            {
+                HandleInput[i].Handle(Visual, internalSettings, ref meta);
+            }
+            var output = meta.vector;
 
-            Handle.anchoredPosition = _input * _radius * HandleRange;
-            SetData(_input);
+            Visual.Handle.anchoredPosition = output * internalSettings.radius;// * internalSettings.handleRange;
+
+            for (int i = 0; i < HandleOutput.Length; i++)
+            {
+                HandleOutput[i].Handle(ref output);
+            }
+
+            SetData(output);
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
             if (!pressed || pointerId != eventData.pointerId) return;
-            if (Type == JoystickType.Static)
-                Handle.anchoredPosition = Vector2.zero;
-            else if (ResetPositionWhenUp)
+
+            for (int i = 0; i < HandleEnd.Length; i++)
             {
-                Background.anchoredPosition = _startPos;
-                Handle.anchoredPosition = Vector2.zero;
+                HandleEnd[i].Handle(Visual, internalSettings);
             }
-            else
-                Background.gameObject.SetActive(false);
 
             pressed = false;
             SetData(Vector2.zero);
-        }
-
-        void HandleInput(float magnitude, Vector2 normalized, Vector2 radius)
-        {
-            if (Type == JoystickType.Floating && magnitude > HandleRange)
-            {
-                Vector2 difference = normalized * (magnitude - HandleRange) * radius;
-                Background.anchoredPosition += difference;
-            }
-            if (magnitude > 1)
-                _input = normalized;
-        }
-
-        Vector2 ScreenPointToAnchoredPosition(Vector2 screenPosition)
-        {
-            if (RectTransformUtility.ScreenPointToLocalPointInRectangle(_baseRect, screenPosition, _camera, out Vector2 localPoint))
-            {
-                Vector2 pivotOffset = _baseRect.pivot * _baseRect.sizeDelta;
-                return localPoint - (Background.anchorMax * _baseRect.sizeDelta) + pivotOffset;
-            }
-            return Vector2.zero;
         }
     }
 }

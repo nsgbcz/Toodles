@@ -1,12 +1,12 @@
-﻿using Leopotam.Ecs;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
+using Leopotam.Ecs;
 
 namespace Toodles.Ecs.Creators
 {
-    public class EcsEntityCreator : IAction
+    public class MonoEntityCreator : SerializedMonoBehaviour, IAction
     {
         [AssetSelector, SerializeField]
         IGet<EcsEntity> Entity;

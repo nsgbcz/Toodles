@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Leopotam.Ecs;
 
-namespace Toodles.Gamepiece.Input
+namespace Toodles.Gamepiece.Input.Joystick
 {
     using Ecs;
 
