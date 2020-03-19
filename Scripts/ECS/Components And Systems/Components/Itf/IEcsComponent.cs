@@ -4,10 +4,10 @@ using UnityEngine;
 using Leopotam.Ecs;
 using Sirenix.OdinInspector;
 
-namespace Toodles.Ecs
+namespace Toodles.ECS
 {
     [AssetSelector]
-    public interface IEcsComponent
+    public interface IECSComponent
     {
         void DressEntity(EcsEntity entity);
 

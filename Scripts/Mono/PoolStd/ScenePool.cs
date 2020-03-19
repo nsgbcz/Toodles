@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace Toodles
 {
-    public class TransformPool : Pool<Transform>
+    public class ScenePool<T> : Pool<T> where T: Component
     {
         static Transform _pool;
-        static Transform Pool
+        public static Transform Pool
         {
             get
             {
@@ -17,13 +17,15 @@ namespace Toodles
                     if (pool == null)
                     {
                         pool = new GameObject("Pool");
+                        GameObject.DontDestroyOnLoad(pool);
                     }
                     _pool = pool.transform;
+                    pool.SetActive(false);
                 }
                 return _pool;
             }
         }
-        public override bool TryGetValue(out Transform value)
+        public override bool TryGetValue(out T value)
         {
             do
             {
@@ -38,9 +40,9 @@ namespace Toodles
             while (value == null);
             return true;
         }
-        public override void SetValue(Transform value)
+        public override void SetValue(T value)
         {
-            value.SetParent(Pool);
+            value.transform.SetParent(Pool);
             base.SetValue(value);
         }
     }

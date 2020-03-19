@@ -4,11 +4,11 @@ using UnityEngine;
 using Leopotam.Ecs;
 using Sirenix.OdinInspector;
 
-namespace Toodles.Ecs
+namespace Toodles.ECS
 {
     public class NewEcsEntity : IVar<EcsEntity>
     {
-        [SerializeField, Required]
+        [SerializeField, Required, AssetSelector]
         IGet<EcsWorld> World;
 
         EcsWorld _world;

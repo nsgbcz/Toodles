@@ -4,9 +4,9 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 using Leopotam.Ecs;
 
-namespace Toodles.Ecs.Creators
+namespace Toodles.ECS
 {
-    public class MonoEcsSystemsRegistrator : IInit, IRun
+    public class MonoSystems : IInit, IRun
     {
         [SerializeField, Required, AssetSelector]
         IGet<EcsWorld> World;

@@ -1,19 +1,21 @@
-﻿using System.Collections;
+﻿using Leopotam.Ecs;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
-using Leopotam.Ecs;
 
-namespace Toodles.Ecs.Creators
+namespace Toodles.ECS
 {
-    public class MonoEntityCreator : SerializedMonoBehaviour, IAction
+    public class EntityECS : IInit, IVar<EntityECS>
     {
         [AssetSelector, SerializeField]
         IGet<EcsEntity> Entity;
-        [SerializeField]
-        IEcsComponent[] Components = new IEcsComponent[0];
+        [SerializeField, HideLabel]
+        IECSComponent[] Components = new IECSComponent[0];
 
-        public void Action()
+        public EntityECS Value { get => this; set => throw new System.NotImplementedException(); }
+
+        public void Init()
         {
             var entity = Entity.Value;
             DressEntity(entity);
