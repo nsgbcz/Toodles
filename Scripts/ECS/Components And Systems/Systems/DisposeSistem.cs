@@ -4,22 +4,27 @@ using UnityEngine;
 
 namespace Toodles.ECS
 {
+    using Leopotam.Ecs.Reactive;
     using Leopotam.Ecs;
 
-    public class DisposeSistem : IEcsRunSystem
+    public class DisposeSistem : EcsReactiveSystem<EcsFilter<DisposeComponent>>
     {
-        EcsFilter<DisposeComponent> DisposeFilter;
         EcsFilter<DisposeComponent, OnDisposeComponent> OnDisposeFilter;
 
-        public void Run()
+        protected override EcsReactiveType GetReactiveType()
+        {
+            return EcsReactiveType.OnAdded;
+        }
+
+        protected override void RunReactive()
         {
             foreach (var i in OnDisposeFilter)
             {
                 OnDisposeFilter.Get2[i].OnDispose?.Invoke();
             }
-            foreach (var i in DisposeFilter)
+            foreach (ref var entity in this)
             {
-                DisposeFilter.Entities[i].Destroy();
+                entity.Destroy();
             }
         }
     }
