@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-namespace Toodles.ECS
+namespace Toodles.Ecs
 {
     using Leopotam.Ecs;
 

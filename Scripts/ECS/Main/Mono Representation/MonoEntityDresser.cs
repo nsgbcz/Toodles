@@ -4,21 +4,21 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 using Leopotam.Ecs;
 
-namespace Toodles.ECS
+namespace Toodles.Ecs
 {
-    public class MonoEntity : SerializedMonoBehaviour, IInit
+    public class MonoEntityDresser : SerializedMonoBehaviour, IInit
     {
         [AssetSelector, SerializeField]
         IGet<EcsEntity> Entity;
         [SerializeField]
-        IECSComponent[] Components = new IECSComponent[0];
+        IComponentEcs[] Components = new IComponentEcs[0];
 
         public void Init()
         {
             DressEntity(Entity.Value);
         }
 
-        public void DressComponent(IECSComponent component)
+        public void DressComponent(IComponentEcs component)
         {
             component.DressEntity(Entity.Value);
         }

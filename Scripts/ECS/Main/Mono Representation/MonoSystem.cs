@@ -4,9 +4,9 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 using Leopotam.Ecs;
 
-namespace Toodles.ECS
+namespace Toodles.Ecs
 {
-    public class SystemsECS : IInit, IRun, IVar<SystemsECS>
+    public class MonoSystem : IInit, IRun
     {
         [SerializeField, Required, AssetSelector]
         IGet<EcsWorld> World;
@@ -14,8 +14,6 @@ namespace Toodles.ECS
         IEcsSystem[] Systems = new IEcsSystem[0];
 
         EcsSystems _systems;
-
-        public SystemsECS Value { get => this; set => throw new System.NotImplementedException(); }
 
         public void Init()
         {
@@ -25,7 +23,6 @@ namespace Toodles.ECS
             {
                 _systems.Add(Systems[i]);
             }
-
             _systems.Init();
         }
 

@@ -4,16 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-namespace Toodles.ECS
+namespace Toodles.Ecs
 {
-    public class EntityECS : IInit, IVar<EntityECS>
+    public class EcsEntityDresser : IInit, IVar<EcsEntityDresser>
     {
         [AssetSelector, SerializeField]
         IGet<EcsEntity> Entity;
         [SerializeField, HideLabel]
-        IECSComponent[] Components = new IECSComponent[0];
+        IComponentEcs[] Components = new IComponentEcs[0];
 
-        public EntityECS Value { get => this; set => throw new System.NotImplementedException(); }
+        public EcsEntityDresser Value { get => this; set => throw new System.NotImplementedException(); }
 
         public void Init()
         {

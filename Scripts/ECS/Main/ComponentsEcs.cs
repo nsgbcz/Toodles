@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-namespace Toodles.ECS
+namespace Toodles.Ecs
 {
-    public class ComponentECS : IECSComponent, IVar<IECSComponent>
+    public class ComponentsEcs : IComponentEcs, IVar<IComponentEcs>
     {
         [SerializeField]
-        IECSComponent[] Components = new IECSComponent[0];
+        IComponentEcs[] Components = new IComponentEcs[0];
 
-        public IECSComponent Value { get => this; set => throw new System.NotImplementedException(); }
+        public IComponentEcs Value { get => this; set => throw new System.NotImplementedException(); }
         public void DressEntity(EcsEntity entity)
         {
             for (int i = 0; i < Components.Length; i++)

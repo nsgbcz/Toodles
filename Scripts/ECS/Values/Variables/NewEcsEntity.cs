@@ -4,7 +4,7 @@ using UnityEngine;
 using Leopotam.Ecs;
 using Sirenix.OdinInspector;
 
-namespace Toodles.ECS
+namespace Toodles.Ecs
 {
     public class NewEcsEntity : IVar<EcsEntity>
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Leopotam.Ecs;
 
-namespace Toodles.ECS
+namespace Toodles.Ecs
 {
     public class NewEcsWorld : IVar<EcsWorld>
     {

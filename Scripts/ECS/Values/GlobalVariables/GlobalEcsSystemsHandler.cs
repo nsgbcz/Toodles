@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Leopotam.Ecs;
 
-namespace Toodles.ECS.Creators
+namespace Toodles.Ecs.Creators
 {
     [CreateAssetMenu(menuName = "Toodles/EcsGlobalVariables/EcsSystemsHandler")]
-    public class GlobalEcsSystemsHandler : GlobalVariable<SystemsECS>, IInit, IRun
+    public class GlobalEcsSystemsHandler : GlobalVariable<SystemManagerEcs>, IInit, IRun
     {
         public void Init()
         {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-namespace Toodles.ECS
+namespace Toodles.Ecs
 {
     using Leopotam.Ecs;
 
@@ -17,7 +17,7 @@ namespace Toodles.ECS
             entity.Set<OnDisposeComponent>();
         }
     }
-    public class OnDisposeComponentView : IECSComponent
+    public class OnDisposeComponentView : IComponentEcs
     {
         public IAction OnDispose;
 
